@@ -2,8 +2,10 @@ view.registerScreen = function() {
     document.getElementById('app').innerHTML = components.register;
     let registerForm = document.getElementById('register-form');
     let registerBtn = document.getElementById('register-btn');
+    let loginURL = document.getElementById('login-url');
 
     registerBtn.onclick = onRegister
+    loginURL.onclick = onLoginURL
 
     function onRegister(e) {
         e.preventDefault();
@@ -16,14 +18,20 @@ view.registerScreen = function() {
         }
         controller.register(registerValue)
     }
+
+    function onLoginURL() {
+        view.loginScreen()
+    }
 }
 
 view.loginScreen = function() {
     document.getElementById('app').innerHTML = components.login;
     let loginForm = document.getElementById('login-form');
     let loginBtn = document.getElementById('login-btn');
+    let registerURL = document.getElementById('register-url');
 
     loginBtn.onclick = onLogin;
+    registerURL.onclick = onRegisterURL
 
     function onLogin(e) {
         e.preventDefault();
@@ -32,5 +40,9 @@ view.loginScreen = function() {
             password: loginForm.password.value,
         }
         controller.login(loginValue)
+    }
+
+    function onRegisterURL() {
+        view.registerScreen()
     }
 }
