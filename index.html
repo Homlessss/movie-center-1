@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movie Center</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-firestore.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyCt3kkTChAUDVAzYb68h2NLhr8sM__c5fc",
+            authDomain: "codeintensive.firebaseapp.com",
+            databaseURL: "https://codeintensive.firebaseio.com",
+            projectId: "codeintensive",
+            storageBucket: "codeintensive.appspot.com",
+            messagingSenderId: "589315797473",
+            appId: "1:589315797473:web:d22079f13ede8d33"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="./js/components/indexComponents.js"></script>
+    <script src="./js/components/authComponents.js"></script>
+    <script src="./js/controller/indexController.js"></script>
+    <script src="./js/controller/authControlller.js"></script>
+    <script src="./js/controller/helperController.js"></script>
+    <script src="./js/model/indexModels.js"></script>
+    <script src="./js/model/authModels.js"></script>
+    <script src="./js/view/indexView.js"></script>
+    <script src="./js/view/authView.js"></script>
+    <script src="./js/view/helperView.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
