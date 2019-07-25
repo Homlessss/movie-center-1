@@ -6,7 +6,8 @@ components.adminPostFilmScreen = `
 <section>
     <form action="" class="post-film-form">
         <aside class="poster-img">
-            <input type="file">
+            <input type="file" id="poster-img">
+            <img src="" alt="" id="preview-poster-img">
         </aside>
         <article>
             <section>
@@ -25,7 +26,6 @@ components.adminPostFilmScreen = `
                     <input type="text" name="runningTime" placeholder="Thời lượng">
                 </div>
             </section>
-
             <section>
                 <h1>Thể loại</h1>
                 <div>
@@ -79,10 +79,9 @@ components.adminPostFilmScreen = `
                     </div>
                 </div>
             </section>
-
             <section>
                 <h1>Ngày khởi chiếu</h1>
-                <select name="" id="">
+                <select name="date" id="">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -115,10 +114,45 @@ components.adminPostFilmScreen = `
                     <option value="30">30</option>
                     <option value="31">31</option>
                 </select>
-                <select name="" id="">
-                    <option value=""></option>
+                <select name="month" id="">
+                    <option value="1">Tháng 1</option>
+                    <option value="2">Tháng 2</option>
+                    <option value="3">Tháng 3</option>
+                    <option value="4">Tháng 4</option>
+                    <option value="5">Tháng 5</option>
+                    <option value="6">Tháng 6</option>
+                    <option value="7">Tháng 7</option>
+                    <option value="8">Tháng 8</option>
+                    <option value="9">Tháng 9</option>
+                    <option value="10">Tháng 10</option>
+                    <option value="11">Tháng 11</option>
+                    <option value="12">Tháng 12</option>
                 </select>
-                <input type="date">
+                <select name="year" id="">
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                </select>
+            </section>
+            <section>
+                <h1>Rated</h1>
+                <select name="" id="">
+                    <option value="G">G</option>
+                    <option value="PG">PG</option>
+                    <option value="PG-13">PG-13</option>
+                    <option value="R">R</option>
+                    <option value="NC17">NC17</option>
+                </select>
+            </section>
+            <section>
+                <button id="post-film-btn">Xác nhận</button>
             </section>
         </article>
     </form>
