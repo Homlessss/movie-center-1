@@ -1,5 +1,5 @@
-view.adminAnalyticsScreen = function() {
-    document.getElementById('app').innerHTML = components.adminAlalytics;
+view.adminManagementScreen = function() {
+    document.getElementById('app').innerHTML = components.adminManagement;
     let addFilmBtn = document.getElementById('add-film-btn');
 
     addFilmBtn.onclick = view.adminPostFilmScreen

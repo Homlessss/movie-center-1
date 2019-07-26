@@ -6,7 +6,7 @@ controller.initAuth = function() {
         if (user) {
             userExtendInfo = await firebase.firestore().collection('users').doc(firebase.auth().currentUser.uid).get();
             if (userExtendInfo.data().admin) {
-                view.adminAnalyticsScreen()
+                view.adminManagementScreen()
             } else {
                 console.log('viewer page')
             }

@@ -22,8 +22,8 @@ controller.addFilm = function () {
             addGenre();
             setRealeaseDate();
             setRated();
-        
-            let posterImg = await prepareImg();
+            console.log(film);
+            let posterImg = await prepareImg(film.name.mainName);
             film.posterImg = posterImg;
             model.addFilm(film);
         } catch(error) {
@@ -41,7 +41,11 @@ controller.addFilm = function () {
             plot: addFilmForm.plot.value,
             starring: addFilmForm.starring.value,
             director: addFilmForm.director.value,
-            runningTime: addFilmForm.runningTime.value
+            runningTime: addFilmForm.runningTime.value,
+            score: {                        
+                imdb: addFilmForm.imdb.value,
+                rotten: addFilmForm.rotten.value
+            } 
         }
 
         function errorHandler(film) {
@@ -69,6 +73,8 @@ controller.addFilm = function () {
                 case 'runningTime':
                     error = 'running time'
                     return error;
+                case 'rotten':
+                    error = 'Rotten Tomatoes'
                 default:
                     return error;
             }
@@ -102,10 +108,10 @@ controller.addFilm = function () {
         film.rated = ratedSelect.value;
     }
 
-    async function prepareImg() {
+    async function prepareImg(name) {
         try {
             let img = document.getElementById('poster-img').files[0];
-            let imgURL = await model.convertImgToURL(img, 'images/tom-holland');
+            let imgURL = await model.convertImgToURL(img, 'images/' + name);
             return imgURL
         } catch (error) {
             throw new Error('You have not set poster image')

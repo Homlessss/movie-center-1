@@ -1,7 +1,3 @@
-components.adminAlalytics = `
-<button id="add-film-btn">Thêm phim</button>
-`
-
 components.adminPostFilmScreen = `
 <section>
     <form action="" class="post-film-form" id="post-film-form">
@@ -24,6 +20,8 @@ components.adminPostFilmScreen = `
                 <div>
                     <input type="text" name="director" placeholder="Đạo diễn">
                     <input type="text" name="runningTime" placeholder="Thời lượng">
+                    <input type="text" name="imdb" placeholder="Điểm imdb">
+                    <input type="text" name="rotten" placeholder="Rotten tomatoes">
                 </div>
             </section>
             <section>
@@ -155,4 +153,32 @@ components.adminPostFilmScreen = `
         </article>
     </form>
 </section>
+`
+
+components.adminManagement = `
+    <section>
+        <button id="add-film-btn">Thêm phim</button>
+    </section>
+    <article>
+        <div></div>
+    </article>
+    <section>
+        <div class="table-header">
+            <div>
+                <h1>Phim</h1>
+            </div>
+            <div>
+                <h3>Ngày khởi chiếu</h3>
+            </div>
+            <div>
+                <h3>Trạng thái</h3>
+            </div>
+            <div>
+                <h3>Đánh giá</h3>
+            </div>
+            <div>
+                <h3>Lượt bình luận</h3>
+            </div>
+        </div>
+    </section>
 `
