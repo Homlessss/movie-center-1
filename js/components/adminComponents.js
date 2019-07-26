@@ -4,7 +4,7 @@ components.adminAlalytics = `
 
 components.adminPostFilmScreen = `
 <section>
-    <form action="" class="post-film-form">
+    <form action="" class="post-film-form" id="post-film-form">
         <aside class="poster-img">
             <input type="file" id="poster-img">
             <img src="" alt="" id="preview-poster-img">
@@ -47,7 +47,7 @@ components.adminPostFilmScreen = `
                     </div>
                     <div>
                         <input type="checkbox" class="genre" value="Hài hước" id="genre-5">
-                        <label for="genre-5">Hành động</label>
+                        <label for="genre-5">Hài hước</label>
                     </div>
                     <div>
                         <input type="checkbox" class="genre" value="Âm nhạc" id="genre-6">
@@ -129,9 +129,6 @@ components.adminPostFilmScreen = `
                     <option value="12">Tháng 12</option>
                 </select>
                 <select name="year" id="">
-                    <option value="2015">2015</option>
-                    <option value="2016">2016</option>
-                    <option value="2017">2017</option>
                     <option value="2018">2018</option>
                     <option value="2019">2019</option>
                     <option value="2020">2020</option>
@@ -143,7 +140,7 @@ components.adminPostFilmScreen = `
             </section>
             <section>
                 <h1>Rated</h1>
-                <select name="" id="">
+                <select name="" id="rated-select">
                     <option value="G">G</option>
                     <option value="PG">PG</option>
                     <option value="PG-13">PG-13</option>
@@ -152,6 +149,7 @@ components.adminPostFilmScreen = `
                 </select>
             </section>
             <section>
+                <p id="add-film-error"></p>
                 <button id="post-film-btn">Xác nhận</button>
             </section>
         </article>
