@@ -26,7 +26,7 @@ controller.addFilm = function () {
             let posterImg = await prepareImg(film.name.mainName);
             film.posterImg = posterImg;
             model.addFilm(film);
-        } catch(error) {
+        } catch (error) {
             view.setText('add-film-error', error.message)
         }
     }
@@ -42,10 +42,11 @@ controller.addFilm = function () {
             starring: addFilmForm.starring.value,
             director: addFilmForm.director.value,
             runningTime: addFilmForm.runningTime.value,
-            score: {                        
+            score: {
                 imdb: addFilmForm.imdb.value,
                 rotten: addFilmForm.rotten.value
-            } 
+            },
+            reviews: [],
         }
 
         function errorHandler(film) {
@@ -91,7 +92,7 @@ controller.addFilm = function () {
         }
 
         let checkedGenreValues = [];
-        checkedGenres.forEach(function(genre) {
+        checkedGenres.forEach(function (genre) {
             checkedGenreValues.push(genre.value)
         });
         film.genre = checkedGenreValues.join(', ');
@@ -115,6 +116,44 @@ controller.addFilm = function () {
             return imgURL
         } catch (error) {
             throw new Error('You have not set poster image')
+        }
+    }
+}
+
+controller.adminAddTableRow = async function () {
+    filmDatas = await model.getFirst10Film();
+
+    for (let film of filmDatas.docs) {
+        let releaseDate = controller.generateDate(film.data().releaseDate);
+        let presentTime = new Date();
+        let convertedFilmData = {
+            id: film.id,
+            posterImg: film.data().posterImg,
+            mainName: film.data().name.mainName,
+            subName: film.data().name.subName,
+            releaseDate: releaseDate,
+            numOfReviews: film.data().reviews.length,
+            score: generateAverageScore(),
+            state: generateState()
+        }
+
+        function generateState() {
+            if (Date.parse(film.data().releaseDate.toDate()) < Date.parse(presentTime)) {
+                return 'Đã Chiếu'
+            } else {
+                return 'Sắp Chiếu'
+            };
+        }
+
+        view.adminAddTableRow(convertedFilmData)
+
+        function generateAverageScore() {
+            let sum = 0;
+            let reviews = film.data().reviews;
+            for (let review of reviews) {
+                sum += review.score
+            }
+            return sum / reviews.length;
         }
     }
 }

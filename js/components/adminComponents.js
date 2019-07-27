@@ -156,29 +156,34 @@ components.adminPostFilmScreen = `
 `
 
 components.adminManagement = `
-    <section>
-        <button id="add-film-btn">Thêm phim</button>
-    </section>
-    <article>
-        <div></div>
-    </article>
-    <section>
-        <div class="table-header">
-            <div>
-                <h1>Phim</h1>
-            </div>
-            <div>
-                <h3>Ngày khởi chiếu</h3>
-            </div>
-            <div>
-                <h3>Trạng thái</h3>
-            </div>
-            <div>
-                <h3>Đánh giá</h3>
-            </div>
-            <div>
-                <h3>Lượt bình luận</h3>
-            </div>
+<section>
+    <button id="add-film-btn">Thêm phim</button>
+</section>
+<section class="table-header-container">
+    <section class="table-row table-header">
+        <div>
+            <h1>Phim</h1>
+        </div>
+        <div>
+            <h3>Ngày khởi chiếu</h3>
+        </div>
+        <div>
+            <h3>Trạng thái</h3>
+        </div>
+        <div>
+            <h3>Đánh giá</h3>
+        </div>
+        <div>
+            <h3>Lượt bình luận</h3>
         </div>
     </section>
+</section>
+<article class="table-body-container" id="table-body">
+</article>
+<section class="table-footer-container">
+    <button><</button>
+    <span>1</span>
+    <button>></button>
+    <span>of 5</span>
+</section>
 `

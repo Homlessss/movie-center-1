@@ -43,3 +43,11 @@ controller.validateLoginForm = function(loginValue) {
         view.setText('login-error', error.message)
     }
 }
+
+controller.generateDate = function(time) {
+    time = time.toDate();
+    let date = time.getDate();
+    let month = time.getMonth() + 1;
+    let year = time.getFullYear();
+    return date + '/' + month + '/' + year
+}
