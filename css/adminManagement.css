@@ -10,3 +10,16 @@
 .table-body .thumbnail {
     height: 85px;
 }
+
+#page-number {
+    pointer-events: none;
+    border: none;
+    width: 10px;
+    text-align: center
+}
+
+#page-number::-webkit-inner-spin-button, 
+#page-number::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

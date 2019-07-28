@@ -181,9 +181,9 @@ components.adminManagement = `
 <article class="table-body-container" id="table-body">
 </article>
 <section class="table-footer-container">
-    <button><</button>
-    <span>1</span>
-    <button>></button>
-    <span>of 5</span>
+    <button id="step-down-btn" data-direction="down"> < </button>
+    <input type="number" value="1" id="page-number">
+    <button id="step-up-btn" data-direction="up"> > </button>
+    <span id="number-of-pages">of 5</span>
 </section>
 `

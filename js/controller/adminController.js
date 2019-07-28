@@ -120,40 +120,97 @@ controller.addFilm = function () {
     }
 }
 
-controller.adminAddTableRow = async function () {
-    filmDatas = await model.getFirst10Film();
+controller.adminAddTable = async function () {
+    filmDatas = await model.getAllFilm();
+    main();
 
-    for (let film of filmDatas.docs) {
-        let releaseDate = controller.generateDate(film.data().releaseDate);
-        let presentTime = new Date();
-        let convertedFilmData = {
-            id: film.id,
-            posterImg: film.data().posterImg,
-            mainName: film.data().name.mainName,
-            subName: film.data().name.subName,
-            releaseDate: releaseDate,
-            numOfReviews: film.data().reviews.length,
-            score: generateAverageScore(),
-            state: generateState()
-        }
+    function main() {
+        let convertedFilmDatas = prepareData(filmDatas);
+        model.managementPages = convertedFilmDatas;
+        view.adminAddTableRow(model.managementPages[0]);
+        model.managementRowNameRefs = document.querySelectorAll('.film-main-name');
+        controller.addOnClickEvent(model.managementRowNameRefs);
+    }
 
-        function generateState() {
-            if (Date.parse(film.data().releaseDate.toDate()) < Date.parse(presentTime)) {
-                return 'Đã Chiếu'
-            } else {
-                return 'Sắp Chiếu'
-            };
-        }
-
-        view.adminAddTableRow(convertedFilmData)
-
-        function generateAverageScore() {
-            let sum = 0;
-            let reviews = film.data().reviews;
-            for (let review of reviews) {
-                sum += review.score
+    function prepareData(filmDatas) {
+        let convertedFilmDatas = []
+        for (let film of filmDatas.docs) {
+            let releaseDate = Date.parse(film.data().releaseDate.toDate());
+            let currentTime = Date.parse(new Date());
+            let convertedFilmData = {
+                id: film.id,
+                posterImg: film.data().posterImg,
+                mainName: film.data().name.mainName,
+                subName: film.data().name.subName,
+                releaseDate: controller.generateDate(releaseDate),
+                numOfReviews: film.data().reviews.length,
+                score: generateAverageScore(film),
+                state: generateState(releaseDate, currentTime)
             }
-            return sum / reviews.length;
+            convertedFilmDatas.push(convertedFilmData)
+        }
+        return paginate(convertedFilmDatas, 2);
+    }
+
+    function generateState(releaseDate, currentTime) {
+        if (releaseDate < currentTime) {
+            return 'Đã Chiếu';
+        } else {
+            return 'Sắp Chiếu';
+        }
+    }
+
+    function generateAverageScore(film) {
+        let sum = 0;
+        let reviews = film.data().reviews;
+        for (let review of reviews) {
+            sum += review.score
+        }
+        return sum / reviews.length;
+    }
+
+    function paginate(array, numOfElements) {
+        let arrayOfPages = [];
+        for (let start = 0, end = numOfElements; start <= array.length - 1;) {
+            arrayOfPages.push(array.slice(start, end));
+            start += numOfElements;
+            end += numOfElements;
+        }
+        return arrayOfPages
+    }
+}
+
+controller.adminManagementSwitchPage = function (direction) {
+    let currentPageNumberRef = document.getElementById('page-number');
+    let currentPageNumber = parseInt(currentPageNumberRef.value);
+    switch (direction) {
+        case 'up':
+            if (currentPageNumber < model.managementPages.length) {
+                currentPageNumberRef.stepUp();
+            }
+            break;
+        case 'down':
+            if (currentPageNumber > 1) {
+                currentPageNumberRef.stepDown();
+            }
+            break
+    }
+    let newPageNumberRef = document.getElementById('page-number');
+    let newPageNumber = parseInt(newPageNumberRef.value);
+    view.adminAddTableRow(model.managementPages[newPageNumber - 1])
+    model.managementRowNameRefs = document.querySelectorAll('.film-main-name');
+    controller.addOnClickEvent(model.managementRowNameRefs);
+}
+
+controller.setNumberOfPage = function () {
+    let number = model.managementPages.length;
+    return 'of ' + number
+}
+
+controller.addOnClickEvent = function(nodeList) {
+    for (let node of nodeList) {
+        node.onclick = function(e) {
+            console.log(e.target.dataset.id)
         }
     }
 }

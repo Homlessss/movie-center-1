@@ -45,7 +45,7 @@ controller.validateLoginForm = function(loginValue) {
 }
 
 controller.generateDate = function(time) {
-    time = time.toDate();
+    time = new Date(time);
     let date = time.getDate();
     let month = time.getMonth() + 1;
     let year = time.getFullYear();

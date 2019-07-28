@@ -1,46 +1,50 @@
 view.adminManagementScreen = async function() {
     document.getElementById('app').innerHTML = components.adminManagement;
-    await controller.adminAddTableRow();
-    let filmMainNames = document.querySelectorAll('.film-main-name')
+    await controller.adminAddTable();
     let addFilmBtn = document.getElementById('add-film-btn');
+    let stepUpBtn = document.getElementById('step-up-btn');
+    let stepDownBtn = document.getElementById('step-down-btn');
+    let numOfPage = document.getElementById('number-of-pages');
+    
     
     addFilmBtn.onclick = view.adminPostFilmScreen;
-    addOnClickEvent(filmMainNames);
-
-    function addOnClickEvent(nodes) {
-        for (let node of nodes) {
-            node.onclick = function(e) {
-                console.log(e.target.dataset.id)
-            }
-        }
-    }
+    numOfPage.innerText = controller.setNumberOfPage();
+    stepUpBtn.onclick = function(e) {
+        controller.adminManagementSwitchPage(e.target.dataset.direction)
+    };
+    stepDownBtn.onclick = function(e) {
+        controller.adminManagementSwitchPage(e.target.dataset.direction)
+    };
 }
 
-view.adminAddTableRow = function(film) {
+view.adminAddTableRow = function(films) {
     let tableBody = document.getElementById('table-body');
-    tableBody.innerHTML += `
-    <section class="table-row table-body" id="${film.id}">
-        <div>
-            <img src="${film.posterImg}" alt="" class="thumbnail">
-        </div>
-        <div>
-            <a href="#" class="film-main-name" data-id="${film.id}">${film.mainName}</a>
-            <p>${film.subName}</p>
-        </div>
-        <div>
-            <span>${film.releaseDate}</span>
-        </div>
-        <div>
-            <span>${film.state}</span>
-        </div>
-        <div>
-            <span>${film.score}</span>
-        </div>
-        <div>
-            <span>${film.numOfReviews}</span>
-        </div>
-    </section>
-    `
+    tableBody.innerHTML = '';
+    for (let film of films) {
+        tableBody.innerHTML += `
+        <section class="table-row table-body" id="${film.id}">
+            <div>
+                <img src="${film.posterImg}" alt="" class="thumbnail">
+            </div>
+            <div>
+                <a href="#" class="film-main-name" data-id="${film.id}">${film.mainName}</a>
+                <p>${film.subName}</p>
+            </div>
+            <div>
+                <span>${film.releaseDate}</span>
+            </div>
+            <div>
+                <span>${film.state}</span>
+            </div>
+            <div>
+                <span>${film.score}</span>
+            </div>
+            <div>
+                <span>${film.numOfReviews}</span>
+            </div>
+        </section>
+        `
+    }
 }
 
 view.adminPostFilmScreen = function() {

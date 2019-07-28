@@ -1,3 +1,6 @@
+model.managementPages = null;
+model.managementRowNameRefs = null;
+
 model.addFilm = async function (film) {
     firebase.firestore().collection('films').add(film)
 }
@@ -9,7 +12,7 @@ model.convertImgToURL = async function (imgFile, imgPath) {
     return imgURL
 }
 
-model.getFirst10Film = async function() {
+model.getAllFilm = async function() {
     let filmsRef = firebase.firestore().collection('films');
     let filmDatas = await filmsRef.orderBy('releaseDate', 'desc').get();
     return filmDatas
