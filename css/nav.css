@@ -1,0 +1,120 @@
+#nav-bar {
+    display: flex;
+    justify-content: center;
+    height: 72px;
+    background: #121327
+}
+
+.nav-container {
+    display: grid;
+    grid-template-columns: 3fr 4fr 5fr;
+    grid-column-gap: 24px;
+    width: 1236px;
+    align-items: center;
+}
+
+.logo-container h1 {
+    color: white;
+    margin-left: 12px;
+    letter-spacing: 2px
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-container input {
+    height: 48px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    border: none;
+    font-size: 1rem;
+    padding-left: 16px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-container input:focus {
+    outline: none;
+}
+
+.search-container input::placeholder {
+    color: rgba(255, 255, 255, 0.3);    
+}
+
+/* ----------info-----------*/
+
+.info-container {
+    justify-self: end;
+    position: relative;
+}
+
+.info-container:hover .extend-info-container {
+    visibility: visible;
+}
+
+.extend-info-container {
+    position: absolute;
+    top: 8px;
+    right: 56px;
+    background: #202134;
+    border-radius: 6px;
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.27);
+    display: grid;
+    grid-template-rows: auto auto;
+    visibility: hidden;
+}
+
+.extend-info {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    grid-column-gap: 20px;
+    align-items: center;
+    padding: 16px 24px 16px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1)
+}
+
+.extend-info h3 {
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.extend-info span {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: .875rem;
+}
+
+.first-ava {
+    width: 56px;
+    height: 56px;
+    padding: 8px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.second-ava {
+    width: 40px;
+    height: 40px;
+}
+
+.setting-menu li {
+    list-style: none;
+}
+
+.setting-menu a {
+    text-decoration: none;
+    color: white;
+    padding: 16px 12px;
+    display: block;
+    transition: .1s ease-in-out;
+}
+
+.setting-menu a:hover {
+    background: #6541CD;
+}
+
+.setting-menu li:last-child a:hover{
+    border-radius: 0 0 6px 6px;
+}
