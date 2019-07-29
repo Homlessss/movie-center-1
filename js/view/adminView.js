@@ -1,6 +1,6 @@
 view.adminManagementScreen = async function() {
     document.getElementById('app').innerHTML = components.adminManagement;
-    await controller.adminAddTable();
+    await controller.getAllFilm();
     let addFilmBtn = document.getElementById('add-film-btn');
     let stepUpBtn = document.getElementById('step-up-btn');
     let stepDownBtn = document.getElementById('step-down-btn');

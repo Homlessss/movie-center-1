@@ -120,7 +120,7 @@ controller.addFilm = function () {
     }
 }
 
-controller.adminAddTable = async function () {
+controller.getAllFilm = async function () {
     filmDatas = await model.getAllFilm();
     main();
 
@@ -142,7 +142,7 @@ controller.adminAddTable = async function () {
                 posterImg: film.data().posterImg,
                 mainName: film.data().name.mainName,
                 subName: film.data().name.subName,
-                releaseDate: controller.generateDate(releaseDate),
+                releaseDate: controller.generateDate(new Date(releaseDate)),
                 numOfReviews: film.data().reviews.length,
                 score: generateAverageScore(film),
                 state: generateState(releaseDate, currentTime)

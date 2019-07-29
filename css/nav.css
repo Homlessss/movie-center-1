@@ -118,3 +118,32 @@
 .setting-menu li:last-child a:hover{
     border-radius: 0 0 6px 6px;
 }
+
+
+/* ------ login url button -------- */
+
+.login-url-btn {
+    color: #36BADD;
+    background: none;
+    height: 40px;
+    width: 112px;
+    border-radius: 100px;
+    border: 1px solid #36BADD;
+    font-size: .875rem;
+    cursor: pointer;
+    transition: .1s ease-in-out;
+}
+
+.login-url-btn:hover {
+    background: #36BADD;
+    color: white;
+}
+
+.login-url-btn:focus {
+    outline: none;
+}
+
+.login-url-btn:active {
+    color: #36BADD;
+    background: none;
+}

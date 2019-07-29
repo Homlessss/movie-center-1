@@ -51,6 +51,7 @@
 .home-list-film {
     display: grid;
     align-items: center;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr
 }
 
 .home-list-film > div {
@@ -59,8 +60,8 @@
 }
 
 .home-list-film .img-wrapper {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     overflow: hidden;
     border-radius: 6px;
 }
@@ -80,6 +81,10 @@
 
 .film-item-container:hover {
     background: rgba(255, 255, 255, .06)
+}
+
+.film-item-container:active {
+    background: rgba(255, 255, 255, .02)
 }
 
 .film-item-container .img-wrapper {
@@ -111,6 +116,15 @@
 .film-item-container .vote-btn button:hover {
     background: #36BADD;
     color: white;
+}
+
+.film-item-container .vote-btn button:focus {
+    outline: none;
+}
+
+.film-item-container .vote-btn button:active {
+    background: none;
+    color: #36BADD;
 }
 
 .film-item-container:hover button {

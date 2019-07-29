@@ -1,4 +1,4 @@
-model.managementPages = null;
+model.allFilmDatas = null;
 model.managementRowNameRefs = null;
 
 model.addFilm = async function (film) {
