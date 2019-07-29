@@ -149,7 +149,7 @@ controller.getAllFilm = async function () {
             }
             convertedFilmDatas.push(convertedFilmData)
         }
-        return paginate(convertedFilmDatas, 2);
+        return controller.paginate(convertedFilmDatas, 2);
     }
 
     function generateState(releaseDate, currentTime) {
@@ -167,16 +167,6 @@ controller.getAllFilm = async function () {
             sum += review.score
         }
         return sum / reviews.length;
-    }
-
-    function paginate(array, numOfElements) {
-        let arrayOfPages = [];
-        for (let start = 0, end = numOfElements; start <= array.length - 1;) {
-            arrayOfPages.push(array.slice(start, end));
-            start += numOfElements;
-            end += numOfElements;
-        }
-        return arrayOfPages
     }
 }
 

@@ -6,36 +6,10 @@ components.home = `
                 <h1 class=home-title>Đang hot</h1>
             </header>
             <aside class="video-trailer" id="home-video-trailer">
-                    <iframe width="606" height="341" src="https://www.youtube.com/embed/Nt9L1jCKGnE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </aside>
-            <article class="home-list-film" id="home-list-film">
-                <div class="film-item-container">
-                    <div class="img-wrapper">
-                        <img src="https://galaxycine.vn/media/2019/5/23/spider-man_1558596633242.jpg" alt="">
-                    </div>
-                    <span class="list-item-name">Spider-Man: Far From Home</span>
-                    <div class="vote-btn">
-                        <button>Vote</button>
-                    </div>
-                    <div class="list-item-vote">
-                        <span class="list-item-star">&#9733</span>
-                        <span class="list-item-score">8.2</span>
-                    </div>
-                </div>
-                <div class="film-item-container">
-                    <div class="img-wrapper">
-                        <img src="https://galaxycine.vn/media/2019/5/23/spider-man_1558596633242.jpg" alt="">
-                    </div>
-                    <span class="list-item-name">Spider-Man: Far From Home</span>
-                    <div class="vote-btn">
-                        <button>Vote</button>
-                    </div>
-                    <div class="list-item-vote">
-                        <span class="list-item-star">&#9733</span>
-                        <span class="list-item-score">8.2</span>
-                    </div>
-                </div>
                 
+            </aside>
+            <article class="home-list-film" id="home-shown-film">
+        
             </article>
             <section class="home-paginate">
                 <div class="dot-container" data-number="1">
@@ -65,6 +39,22 @@ components.home = `
                 </div>
             </footer>
         </article>
+    </div>
+</div>
+`
+
+components.homeFilmItem = `
+<div class="film-item-container">
+    <div class="img-wrapper">
+        <img src="https://galaxycine.vn/media/2019/5/23/spider-man_1558596633242.jpg" alt="">
+    </div>
+    <span class="list-item-name">Spider-Man: Far From Home</span>
+    <div class="vote-btn">
+        <button>Vote</button>
+    </div>
+    <div class="list-item-vote">
+        <span class="list-item-star">&#9733</span>
+        <span class="list-item-score">8.2</span>
     </div>
 </div>
 `

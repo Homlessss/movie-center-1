@@ -59,7 +59,12 @@ controller.generateScore = function (film) {
     for (let review of reviews) {
         sum += review.score
     }
-    return sum / reviews.length;
+    let average = sum / reviews.length;
+    if (parseInt(average) === average) {
+        return average + '.0'
+    }
+
+    return average
 }
 
 controller.setFilmState = function (dateObject) {
@@ -95,6 +100,7 @@ controller.convertFilmData = function(snapshot) {
     filmData.score.movieCenter = controller.generateScore(snapshot);
     filmData.trailerIframe = controller.generateIframe(filmData.trailerURL);
     filmData.state = controller.setFilmState(snapshot.data().releaseDate.toDate());
+    filmData.id = snapshot.id;
     return filmData;
 }
 
@@ -105,5 +111,16 @@ controller.loadAllFilms = async function() {
         let filmData = controller.convertFilmData(doc);
         filmDatas.push(filmData);
     }
+    model.allFilmDatas = filmDatas;
     return filmDatas;
+}
+
+controller.paginate = function(array, numOfElements) {
+    let arrayOfPages = [];
+    for (let start = 0, end = numOfElements; start <= array.length - 1;) {
+        arrayOfPages.push(array.slice(start, end));
+        start += numOfElements;
+        end += numOfElements;
+    }
+    return arrayOfPages
 }
