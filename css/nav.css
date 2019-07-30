@@ -11,6 +11,7 @@
     grid-column-gap: 24px;
     width: 1236px;
     align-items: center;
+    cursor: pointer;
 }
 
 .logo-container h1 {

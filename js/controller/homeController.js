@@ -1,8 +1,7 @@
 controller.addHomeComponents= async function() {
     filmDatas = await controller.loadAllFilms();
     controller.addShownFilmComponent(filmDatas);
-    controller.addHomePaginateEvent();
-    controller.castVideoTrailerEvent();
+    controller.addCommingSoonFilmComponent(filmDatas);
 }
 
 controller.addShownFilmComponent = function(filmDatas) {
@@ -12,6 +11,8 @@ controller.addShownFilmComponent = function(filmDatas) {
     let shownFilmsPages = controller.paginate(shownFilms, 5);
     model.shownFilmsPages = shownFilmsPages;
     view.homeShownFilmComponent(shownFilmsPages[0]);
+    controller.addHomePaginateEvent();
+    controller.castVideoTrailerEvent();
 }
 
 controller.addHomePaginateEvent = function () {
@@ -52,4 +53,26 @@ controller.castVideoTrailerEvent = function() {
         view.setHomeVideoTrailer(targetFilms.trailerIframe);
     }
 
+}
+
+controller.addCommingSoonFilmComponent = function(filmDatas) {
+    commingSoonFilms = filmDatas.filter(function(film) {
+        return film.state === 0;
+    })
+    commingSoonFilms = commingSoonFilms.sort(function(a, b) {
+        aDate = new Date(a.releaseDate.seconds);
+        bDate = new Date(b.releaseDate.seconds);
+        return aDate  - bDate
+
+    });
+    view.renderCommingSoonFilm(commingSoonFilms);
+    controller.addSlideBtnEvent();
+}
+
+controller.addSlideBtnEvent = function() {
+    let rightBtn = document.getElementById('slide-right-btn');
+    let leftBtn = document.getElementById('slide-left-btn');
+    let slider = document.getElementById('comming-soon-film');
+
+    
 }

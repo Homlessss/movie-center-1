@@ -27,16 +27,10 @@ components.home = `
             </section>
             <section class="comming-soon-title">
                 <h1 class=home-title>Phim Sắp Chiếu</h1>
+                <div class="footer-left-btn triangle" id="slide-left-btn">&#9668;</div>
+                <div class="footer-right-btn triangle" id="slide-right-btn">&#9658;</div>
             </section>
             <footer class="home-footer" id="comming-soon-film">
-                <div class="comming-soon-film">
-                    <div class="info-container">
-                        <div>
-                            <h2>Dora and the Lost City of Gold</h2>
-                            <span>Khởi chiếu: 02/08/2019</span>
-                        </div>
-                    </div>
-                </div>
             </footer>
         </article>
     </div>

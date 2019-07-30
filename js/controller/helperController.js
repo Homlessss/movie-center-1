@@ -96,7 +96,7 @@ controller.generateIframe = function (url) {
 controller.convertFilmData = function(snapshot) {
     let filmData = snapshot.data()
 
-    filmData.releaseDate = controller.generateDate(snapshot.data().releaseDate.toDate());
+    filmData.releaseDateString = controller.generateDate(snapshot.data().releaseDate.toDate());
     filmData.score.movieCenter = controller.generateScore(snapshot);
     filmData.trailerIframe = controller.generateIframe(filmData.trailerURL);
     filmData.state = controller.setFilmState(snapshot.data().releaseDate.toDate());

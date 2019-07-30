@@ -1,9 +1,10 @@
 view.nav = function() {
     view.setHTML('nav-bar', components.nav);
+    let navLogo = document.getElementById('nav-logo');
+    navLogo.onclick = view.homeScreen
 }
 
 view.guestNav = function() {
-    view.setHTML('nav-bar', components.nav);
     view.setHTML('nav-user-info', components.navLoginBtn);
     let loginUrlBtn = document.getElementById('nav-login-btn');
 
@@ -11,14 +12,12 @@ view.guestNav = function() {
 }
 
 view.userNav = function() {
-    view.setHTML('nav-bar', components.nav);
     view.setHTML('nav-user-info', components.navUserInfo);
     view.navAddSettingMenuEvent();
     controller.setNavInfo()
 }
 
 view.adminNav = function() {
-    view.setHTML('nav-bar', components.nav);
     view.setHTML('nav-user-info', components.navUserInfo); 
     view.setHTML('nav-setting-menu', components.navAdminSettingMenu);
     view.navAddSettingMenuEvent();

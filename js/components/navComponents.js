@@ -1,6 +1,6 @@
 components.nav = `
     <nav class="nav-container">
-        <div class="logo-container">
+        <div class="logo-container" id="nav-logo">
             <img src="https://firebasestorage.googleapis.com/v0/b/codeintensive.appspot.com/o/images%2Flogo.png?alt=media&token=6dbfdf33-4262-4104-9c3c-89e853905aff"
                 alt="">
             <h1>MovieCenter</h1>

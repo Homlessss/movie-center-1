@@ -1,5 +1,4 @@
 view.homeScreen = function () {
-    view.nav();
     view.setHTML('app', components.home);
     controller.addHomeComponents();
 }
@@ -34,4 +33,20 @@ view.homeShownFilmComponent = function (shownFilms) {
 view.setHomeVideoTrailer = function(iframe) {
     let homeVideoTrailer = document.getElementById('home-video-trailer');
     homeVideoTrailer.innerHTML = iframe;
+}
+
+view.renderCommingSoonFilm = function (commingSoonFilms) {
+    for (let commingSoonFilm of commingSoonFilms) {
+        let commingSoonFilmRef = document.getElementById('comming-soon-film');
+        commingSoonFilmRef.innerHTML += `
+            <div class="comming-soon-film" style="background-image: url(${commingSoonFilm.posterImg})">
+                <div class="info-container">
+                    <div>
+                        <h2>${commingSoonFilm.name.mainName}</h2>
+                        <span>${commingSoonFilm.releaseDateString}</span>
+                    </div>
+                </div>
+            </div>
+        `
+    }
 }
