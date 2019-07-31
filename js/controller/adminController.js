@@ -149,7 +149,7 @@ controller.getAllFilm = async function () {
             }
             convertedFilmDatas.push(convertedFilmData)
         }
-        return controller.paginate(convertedFilmDatas, 2);
+        return controller.paginate(convertedFilmDatas, 10);
     }
 
     function generateState(releaseDate, currentTime) {

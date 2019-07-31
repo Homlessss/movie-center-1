@@ -5,3 +5,12 @@
     box-sizing: border-box;
 }
 
+#nav-bar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+#app {
+    margin-top: 71px;
+}

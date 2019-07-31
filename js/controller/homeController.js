@@ -2,6 +2,7 @@ controller.addHomeComponents= async function() {
     filmDatas = await controller.loadAllFilms();
     controller.addShownFilmComponent(filmDatas);
     controller.addCommingSoonFilmComponent(filmDatas);
+    controller.addVoteFilmURLEvent();
 }
 
 controller.addShownFilmComponent = function(filmDatas) {
@@ -23,6 +24,7 @@ controller.addHomePaginateEvent = function () {
             let filmDatas = model.shownFilmsPages[pageNumber - 1];
             if (filmDatas) {
                 view.homeShownFilmComponent(filmDatas);
+                controller.addVoteFilmURLEvent();
                 resetPaginateColor();
                 e.target.children[0].style.background = '#6541CD';
                 controller.castVideoTrailerEvent();
@@ -73,6 +75,31 @@ controller.addSlideBtnEvent = function() {
     let rightBtn = document.getElementById('slide-right-btn');
     let leftBtn = document.getElementById('slide-left-btn');
     let slider = document.getElementById('comming-soon-film');
+    let slideElement = document.querySelector('.comming-soon-film');
+    let slideElementWidth = slideElement.offsetWidth;
+    let slideElementMargin = window.getComputedStyle(slideElement).marginRight;
+        slideElementMargin = parseInt(slideElementMargin.split('px')[0]);
+    let totalElementWidth = slideElementWidth + slideElementMargin;
 
-    
+    rightBtn.onclick = function() {
+        slider.scrollLeft += totalElementWidth;
+    }
+
+    leftBtn.onclick = function() {
+        slider.scrollLeft -= totalElementWidth;
+    }
+
+    slider.onscroll = function() {
+        if (slider.scrollLeft === 0) {
+            leftBtn.style.visibility = 'hidden'
+        } else {
+            leftBtn.style.visibility = 'visible'
+        }
+
+        if (slider.scrollLeft === slider.scrollWidth - slider.clientWidth) {
+            rightBtn.style.visibility = 'hidden'
+        } else {
+            rightBtn.style.visibility = 'visible'
+        }
+    }
 }

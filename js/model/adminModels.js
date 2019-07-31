@@ -1,6 +1,3 @@
-model.allFilmDatas = null;
-model.managementRowNameRefs = null;
-
 model.addFilm = async function (film) {
     firebase.firestore().collection('films').add(film)
 }

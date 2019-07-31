@@ -1,6 +1,10 @@
 #nav-bar {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     height: 72px;
     background: #121327
 }
@@ -10,7 +14,9 @@
     grid-template-columns: 3fr 4fr 5fr;
     grid-column-gap: 24px;
     width: 1236px;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     cursor: pointer;
 }
 
@@ -21,8 +27,12 @@
 }
 
 .logo-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .search-container input {
@@ -38,6 +48,18 @@
 
 .search-container input:focus {
     outline: none;
+}
+
+.search-container input::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.3);    
+}
+
+.search-container input:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.3);    
+}
+
+.search-container input::-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.3);    
 }
 
 .search-container input::placeholder {
@@ -61,7 +83,8 @@
     right: 56px;
     background: #202134;
     border-radius: 6px;
-    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.27);
+    -webkit-box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.27);
+            box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.27);
     display: grid;
     grid-template-rows: auto auto;
     visibility: hidden;
@@ -71,7 +94,9 @@
     display: grid;
     grid-template-columns: 40px 1fr;
     grid-column-gap: 20px;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding: 16px 24px 16px 12px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1)
 }
@@ -91,7 +116,8 @@
     width: 56px;
     height: 56px;
     padding: 8px;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     cursor: pointer;
 }
 
@@ -109,6 +135,7 @@
     color: white;
     padding: 16px 12px;
     display: block;
+    -webkit-transition: .1s ease-in-out;
     transition: .1s ease-in-out;
 }
 
@@ -132,6 +159,7 @@
     border: 1px solid #36BADD;
     font-size: .875rem;
     cursor: pointer;
+    -webkit-transition: .1s ease-in-out;
     transition: .1s ease-in-out;
 }
 

@@ -6,7 +6,11 @@
 
 .home-container {
     background-color: rgba(18, 19, 39, .94);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
@@ -14,7 +18,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 24px;
-    margin: 72px 0;
+    margin: 48px 0 100px 0;
     width: 1230px;
 }
 
@@ -45,13 +49,16 @@
 
 /* ----- video trailer ----- */
 .video-trailer iframe {
-    box-shadow: 0 8px 8px rgba(0, 0, 0, .27);
+    -webkit-box-shadow: 0 8px 8px rgba(0, 0, 0, .27);
+            box-shadow: 0 8px 8px rgba(0, 0, 0, .27);
 }
 
 /* ----- list film ----- */
 .home-list-film {
     display: grid;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
@@ -74,9 +81,12 @@
 .film-item-container {
     display: grid;
     grid-template-columns: 72px 4fr 1fr 1fr;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     height: 100%;
     cursor: pointer;
+    -webkit-transition: .1s ease-in-out;
     transition: .1s ease-in-out;
 }
 
@@ -107,9 +117,11 @@
     background: none;
     color: #36BADD;
     border: 1px solid #36BADD;
+    -webkit-transition: .1s ease-in-out;
     transition: .1s ease-in-out;
     cursor: pointer;
     opacity: 0;
+    -webkit-transition: opacity .2s ease-in .1s;
     transition: opacity .2s ease-in .1s;
 }
 
@@ -135,7 +147,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: end;
-    align-items: end;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: end;
 }
 
 .list-item-star {
@@ -151,9 +165,13 @@
 /* -------paginate--------- */
 
 .home-paginate {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    margin-bottom: 72px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    /* margin-bottom: 36px; */
 }
 
 .home-paginate .dot-container {
@@ -162,9 +180,6 @@
     cursor: pointer;
 }
 
-.home-paginate .dot-container:hover .dot{
-    background: #6541CD;
-}
 
 .home-paginate .dot {
     width: 10px;
@@ -178,31 +193,61 @@
 /* ------footer------ */
 
 .home-footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     overflow-x: hidden;
     position: relative;
+    scroll-behavior: smooth;
 }
 
 .comming-soon-film {
-    flex-shrink: 0;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
 }
 
 .comming-soon-film {
     height: 250px;
     width: 185px;
-    background: url('https://cdn.flickeringmyth.com/wp-content/uploads/2019/03/Dora-and-the-Lost-City-of-Gold-posters-1-600x750.jpg') no-repeat center center;
-    background-size: cover;
     margin-right: 24px;
+    position: relative;
+}
+
+.comming-soon-film .img-wrapper {
+    top: 0;
+    left: 0;
+    position: absolute;
+    overflow: hidden;
+    height: 250px;
+    width: 185px;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.comming-soon-film .img-wrapper img {
+    height: 250px;
+    width: 185px; 
 }
 
 .comming-soon-film .info-container {
     border: 2px solid white;
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: flex-end;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
     opacity: 0;
     cursor: pointer;
+    -webkit-transition: .2s ease-in-out;
     transition: .2s ease-in-out;
+}
+
+.comming-soon-film .info-container div {
+    width: 100%;
 }
 
 .comming-soon-film:hover .info-container {
@@ -211,6 +256,7 @@
 
 .comming-soon-film .info-container > div{
     padding: 40px 15px 15px 15px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgb(0, 0, 0)));
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0))
 }
 
@@ -241,9 +287,11 @@
 .comming-soon-title .footer-left-btn {
     position: absolute;
     left: -36px;
+    visibility: hidden;
 }
 
 .comming-soon-title .footer-right-btn {
     position: absolute;
-    right: -36px
+    right: -36px;
+    visibility: visible;
 }

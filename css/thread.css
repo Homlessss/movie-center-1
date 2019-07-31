@@ -1,0 +1,155 @@
+.thread-page {
+    background: #202134;
+}
+
+/* ------------header------------- */
+.thread-header-container {
+    background: #292A3C;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: 136px;
+}
+
+.thread-header-wrapper {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    width: 1320px;
+}
+
+.thread-header-info h1 {
+    color: white;
+    font-size: 2rem;
+    font-weight: 500
+}
+
+.thread-header-info h3 {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.thread-header-info p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+}
+
+.thread-header-vote {
+    justify-self: center;
+    align-self: center;
+}
+
+.thread-header-vote > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thread-header-vote .star {
+    font-size: 36px;
+    color: #FD2D55;
+    margin-right: 8px;
+
+}
+
+.thread-header-vote .score {
+    color: white;
+    font-size: 3rem;
+}
+
+.thread-header-vote > span {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.25rem;
+}
+
+/* ------------ body layout ----------- */
+
+.thread-article {
+    background: #ccc;
+}
+
+.thread-body-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
+.thread-body-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 24px;
+    width: 1320px;
+}
+
+/* --------- aside ---------- */
+
+.thread-aside {
+    display: grid;
+    grid-row-gap: 44px;
+}
+
+.thread-aside .poster-img {
+    width: 100%;
+}
+
+/* --------- related films -------- */
+
+.related h4 {
+    color: #36BADD;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+
+.related-item-wrapper {
+    display: grid;
+    background: #292A3C;
+    border-radius: 6px;
+}
+
+.related-item {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    padding: 12px;
+}
+
+.related-item div:first-child {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    grid-column-gap: 20px;
+    align-items: center;
+}
+
+.related-item .img-wrapper {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    position: relative;
+    background: red;
+    border-radius: 4px;
+}
+
+.related-item .img-wrapper img {
+    position: absolute;
+    width: 100%;
+}
+
+.related-item .name {
+    color: white;
+    font-size: 1rem;
+}
+
+.related-item div:last-child {
+    align-self: center;
+    justify-self: end;
+}
+
+.related-item div:last-child .star {
+    font-size: 24px;
+    color: #FD2D55
+}
+
+.related-item div:last-child .score {
+    color: white;
+    font-size: 1.5rem;
+}

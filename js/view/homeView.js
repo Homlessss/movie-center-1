@@ -19,7 +19,7 @@ view.homeShownFilmComponent = function (shownFilms) {
                 </div>
                 <span class="list-item-name">${shownFilm.name.mainName}</span>
                 <div class="vote-btn">
-                    <button>Vote</button>
+                    <button class="film-vote-url" data-id="${shownFilm.id}">Vote</button>
                 </div>
                 <div class="list-item-vote">
                     <span class="list-item-star">&#9733</span>
@@ -39,7 +39,10 @@ view.renderCommingSoonFilm = function (commingSoonFilms) {
     for (let commingSoonFilm of commingSoonFilms) {
         let commingSoonFilmRef = document.getElementById('comming-soon-film');
         commingSoonFilmRef.innerHTML += `
-            <div class="comming-soon-film" style="background-image: url(${commingSoonFilm.posterImg})">
+            <div class="comming-soon-film film-vote-url" data-id="${commingSoonFilm.id}">
+                <div class="img-wrapper">
+                    <img src="${commingSoonFilm.posterImg}" alt="">
+                </div>
                 <div class="info-container">
                     <div>
                         <h2>${commingSoonFilm.name.mainName}</h2>

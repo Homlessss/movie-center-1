@@ -124,3 +124,13 @@ controller.paginate = function(array, numOfElements) {
     }
     return arrayOfPages
 }
+
+controller.addVoteFilmURLEvent = function() {
+    let filmURLs = document.querySelectorAll('.film-vote-url');
+    for (let filmURL of filmURLs) {
+        filmURL.onclick = function(e) {
+            e.stopPropagation();
+            view.threadScreen(filmURL.dataset.id);
+        }
+    }
+}
