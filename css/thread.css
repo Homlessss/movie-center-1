@@ -14,7 +14,7 @@
 .thread-header-wrapper {
     display: grid;
     grid-template-columns: 5fr 1fr;
-    width: 1320px;
+    width: 1230px;
 }
 
 .thread-header-info h1 {
@@ -27,6 +27,7 @@
     color: rgba(255, 255, 255, 0.7);
     font-weight: 400;
     font-size: 1.5rem;
+    margin-bottom: 4px;
 }
 
 .thread-header-info p {
@@ -64,10 +65,6 @@
 
 /* ------------ body layout ----------- */
 
-.thread-article {
-    background: #ccc;
-}
-
 .thread-body-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -78,7 +75,7 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-column-gap: 24px;
-    width: 1320px;
+    width: 1230px;
 }
 
 /* --------- aside ---------- */
@@ -152,4 +149,135 @@
 .related-item div:last-child .score {
     color: white;
     font-size: 1.5rem;
+}
+
+/* ------- Thread article ----- */
+
+/* ------info----- */
+.thread-info {
+    border-bottom: 1px solid rgba(255, 255, 255, .2)
+}
+
+.thread-info h1 {
+    color: #36BADD;
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 12px 0;
+}
+
+.thread-info p {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.thread-info .release-date {
+    margin-bottom: 4px;
+}
+
+.thread-info .plot {
+    margin-bottom: 12px;
+}
+
+.thread-info .title {
+    font-weight: 500;
+}
+
+.thread-info .score {
+    display: flex;
+    margin-bottom: 24px;
+}
+
+.imdb-score {
+    background: #F5C518;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+
+.rotten-score {
+    background: #C2C4C6;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* ------ thread vote ------ */
+
+.rating-form {
+    display: grid;
+}
+
+.thread-vote .title {
+    color: white;
+    margin-top: 12px;
+    font-size: 1.5rem;
+}
+
+.star-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-bottom: 4px;
+}
+
+.star-container input.star {
+    display: none;
+}
+
+.star-container label.star {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 36px;
+    line-height: 1.1;
+    cursor: pointer;
+    margin-right: 4px;
+    transition: .2s ease-in-out;
+}
+
+.star-container label.star:hover ~ label.star,
+.star-container label.star:hover {
+    color: #FD2D55
+}
+
+.star-container input.star:checked ~ label.star {
+    color: #FD2D55
+}
+
+.star-container input.star:active ~ label.star {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* ----- */
+
+.rating-form textarea {
+    background: #292A3C;
+    width: 100%;
+    height: 100px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 1rem;
+    padding: 12px;
+    overflow: hidden;
+    resize: none;
+    margin-bottom: 8px;
+}
+
+.rating-form textarea:focus {
+    outline: none;
+}
+
+.rating-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1rem;
+}
+
+.rating-form-btn {
+    color: white;
+    font-size: 1rem;
+    background: #6541CD;
+    width: 132px;
+    height: 40px;
+    border: none;
+    border-radius: 100px;
+    justify-self: end;
 }
