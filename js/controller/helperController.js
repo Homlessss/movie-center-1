@@ -93,7 +93,7 @@ controller.generateIframe = function (url) {
     return iframe
 }
 
-controller.convertFilmData = function(snapshot) {
+controller.convertFilmData = async function(snapshot) {
     let filmData = snapshot.data()
 
     filmData.releaseDateString = controller.generateDate(snapshot.data().releaseDate.toDate());
@@ -101,16 +101,34 @@ controller.convertFilmData = function(snapshot) {
     filmData.trailerIframe = controller.generateIframe(filmData.trailerURL);
     filmData.state = controller.setFilmState(snapshot.data().releaseDate.toDate());
     filmData.id = snapshot.id;
+    filmData.reviews = await controller.getReviewInfo(filmData.reviews);
+
     return filmData;
+}
+
+controller.getReviewInfo = async function(reviews) {
+    reviews.map(getReviewerInfo)
+    return reviews
+
+    async function getReviewerInfo(review) {
+        if (reviews.length != 0) {
+            let reviewer = await firebase.firestore().collection('users').doc(review.user).get();
+            review.photoURL = reviewer.data().photoURL;
+            review.displayName = reviewer.data().displayName;
+            review.timeStampString = controller.generateDate(review.timeStamp.toDate());
+            return review
+        }
+    }
 }
 
 controller.loadAllFilms = async function() {
     let filmDatas = [];
     let querySnapshots = await model.loadAllFilms();
     for (doc of querySnapshots.docs) {
-        let filmData = controller.convertFilmData(doc);
+        let filmData = await controller.convertFilmData(doc);
         filmDatas.push(filmData);
     }
+    console.log(filmDatas)
     model.allFilmDatas = filmDatas;
     return filmDatas;
 }

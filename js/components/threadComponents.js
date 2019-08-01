@@ -1,19 +1,19 @@
-components.thread = function(id) {
+components.thread = function(filmData) {
 return `
 <div class="thread-page">
     <header class="thread-header-container">
         <div class="thread-header-wrapper">
             <section class="thread-header-info">
-                <h1>Spider-Man Far From Home</h1>
-                <h3>Người nhện xa nhà</h3>
-                <p>PG-13 | 160p | Hành động, Phiêu lưu, Viễn Tưởng</p>
+                <h1>${filmData.name.mainName}</h1>
+                <h3>${filmData.name.subName}</h3>
+                <p>${filmData.rated} | ${filmData.runningTime}p | ${filmData.genre}</p>
             </section>
             <section class="thread-header-vote">
                 <div>
                     <span class="star">&#9733;</span>
-                    <span class="score">8.2</span>
+                    <span class="score">${filmData.score.movieCenter}</span>
                 </div>
-                <span>Lượt đánh giá: 230</span>
+                <span>Lượt đánh giá: ${filmData.reviews.length}</span>
             </section>
         </div>
     </header>
@@ -21,10 +21,10 @@ return `
         <div class="thread-body-wrapper">
             <aside class="thread-aside">
                 <div>
-                    <img class="poster-img" src="https://galaxycine.vn/media/2019/5/23/spider-man_1558596633242.jpg"
+                    <img class="poster-img" src="${filmData.posterImg}"
                         alt="">
                 </div>
-                <section class="related">
+                <section class="related" id="related">
                     <h4>Liên quan</h4>
                     <section class="related-item-wrapper">
                         <div class="related-item">
@@ -72,24 +72,20 @@ return `
             <article class="thread-article">
                 <section class="thread-info">
                     <h1>Thông tin phim</h1>
-                    <p class="plot">Hậu chiến Vô Cực, Người Nhện Peter Parker và nhóm bạn thân cùng
-                        tham gia chuyến du lịch châu Âu của trường. Tuy nhiên, kế hoạch
-                        siêu anh hùng nghỉ phép của Peter nhanh chóng bị hủy bỏ sau khi
-                        cậu đồng ý giúp Nick Fury khám phá bí ẩn về những cuộc tấn công của
-                        nhóm kẻ thù mang sức mạnh nguyên tố đang tàn phá khắp lục địa.</p>
-                    <p><span class="title">Đạo diễn: </span>Jon Watts</p>
-                    <p><span class="title">Diễn viên: </span>Tom Holland, Samuel L. Jackson, Zendaya, Jon Favreau</p>
-                    <p class="release-date"><span class="title">Khởi chiếu: </span> 05/07/2019</p>
+                    <p class="plot">${filmData.plot}</p>
+                    <p><span class="title">Đạo diễn: </span>${filmData.director}</p>
+                    <p><span class="title">Diễn viên: </span>${filmData.starring}</p>
+                    <p class="release-date"><span class="title">Khởi chiếu: </span>${filmData.releaseDateString}</p>
                     <div class="score">
                         <div class="imdb-score">
                             <img src="https://firebasestorage.googleapis.com/v0/b/codeintensive.appspot.com/o/images%2FIMDB.svg?alt=media&token=cc62468c-9399-4ea3-a926-a709b4ce54c8"
                                 alt="">
-                            <span>8.0</span>
+                            <span>${filmData.score.imdb}</span>
                         </div>
                         <div class="rotten-score">
                             <img src="https://firebasestorage.googleapis.com/v0/b/codeintensive.appspot.com/o/images%2FRotten%20Tomatoes.svg?alt=media&token=ffe96f4d-49e8-4b87-aba4-07622232098d"
                                 alt="">
-                            <span>93%</span>
+                            <span>${filmData.score.rotten}%</span>
                         </div>
                     </div>
                 </section>
@@ -124,7 +120,7 @@ return `
                 </section>
                 <article class="thread-comment">
                     <section class="comment-header">
-                        <p class="sub-header">92 bình luận</p>
+                        <p class="sub-header">${filmData.reviews.length} bình luận</p>
                         <div class="comment-sort">
                             <span>Sắp xếp theo <img src="https://firebasestorage.googleapis.com/v0/b/codeintensive.appspot.com/o/icon%2Fdropdown-icon.svg?alt=media&token=0c69959f-bf8f-4c40-bbbd-7718f09c8598" alt=""></span>
                             <div class="dropdown">
@@ -133,36 +129,8 @@ return `
                             </div>
                         </div>
                     </section>
-                    <section class="comment-container">
-                        <div class="comment-item">
-                            <div class="avatar">
-                                <img src="https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1" alt="">
-                            </div>
-                            <div class="title-wrapper">
-                                <div>
-                                    <a href="#" class="sub-header">Phạm Đình Hoàng</a>
-                                    <div class="score">
-                                        <span>&#9733;</span>
-                                        <span>6</span>
-                                    </div>
-                                </div>
-                                <span class="time-stamp">04/07/2019</span>
-                            </div>
-                            <div class="content">
-                                <p class="body-text">Không biết do mình xem phim không thích kiểu SAH trẻ trâu như người
-                                    nhện mà mình thấy phim khá bình thường. Mọi tình tiết khá dễ đoán ra.
-                                    Chắc tại mình xem phân tích nhân vật của Phê Phim trước r nên mới
-                                    xem đã biết trước nhân vật phản diện cũng. Bất ngờ ở aftercredit.
-                                    Nếu không khác theo truyện thì Dì May hay MJ thế nào cũng chết.
-                                    Vì Peter đã bị lộ danh tính</p>
-                                <div class="heart-container">
-                                    <div class="heart">
-                                        <img src="https://firebasestorage.googleapis.com/v0/b/codeintensive.appspot.com/o/images%2Fheart-icon.svg?alt=media&token=06247f4e-72f2-4854-a6c0-1c2d6fc33ee1" alt="">
-                                    </div>
-                                    <span>12</span>
-                                </div>
-                            </div>    
-                        </div>
+                    <section class="comment-container" id="comment-container">
+                        
                     </section>
                 </article>
             </article>
@@ -170,4 +138,34 @@ return `
     </div>
 </div>
 `
+}
+
+components.addReviewsItems = function(review) {
+    let html = `
+    <div class="comment-item">
+        <div class="avatar">
+            <img src="${review.photoURL}" alt="">
+        </div>
+        <div class="title-wrapper">
+            <div>
+                <a href="#" class="sub-header">${review.displayName}</a>
+                <div class="score">
+                    <span>&#9733;</span>
+                    <span>${review.score}</span>
+                </div>
+            </div>
+            <span class="time-stamp">${review.timeStampString}</span>
+        </div>
+        <div class="content">
+            <p class="body-text">${review.content}</p>
+            <div class="heart-container">
+                <div class="heart">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/codeintensive.appspot.com/o/images%2Fheart-icon.svg?alt=media&token=06247f4e-72f2-4854-a6c0-1c2d6fc33ee1" alt="">
+                </div>
+                <span>${review.reactions.length}</span>
+            </div>
+        </div>    
+    </div>
+    `
+    return html
 }
