@@ -14,3 +14,42 @@
 #app {
     margin-top: 71px;
 }
+
+.body-text {
+    color: white;
+    font-size: 0.875rem;
+}
+
+.sub-header {
+    color: white;
+    font-size: 1rem;
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.24);
+    border-radius: 6px;
+    background: #292A3C;
+}
+
+.dropdown a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.875rem;
+    line-height: 1;
+    padding: 16px;
+    transition: .1s ease-in-out;
+}
+
+.dropdown a:hover {
+    background: #6541CD;
+}
+
+.dropdown a:hover:first-child {
+    border-radius: 6px 6px 0 0;
+}
+
+.dropdown a:hover:last-child {
+    border-radius: 0 0 6px 6px;
+}

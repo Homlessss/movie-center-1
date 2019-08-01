@@ -122,7 +122,43 @@ return `
                         <button class="rating-form-btn">Gửi đánh giá</button>
                     </form>
                 </section>
-                <section class="thread-comment">Comment</section>
+                <article class="thread-comment">
+                    <section class="comment-header">
+                        <p class="sub-header">92 bình luận</p>
+                        <div class="comment-sort">
+                            <span>Sắp xếp theo <img src="https://firebasestorage.googleapis.com/v0/b/codeintensive.appspot.com/o/icon%2Fdropdown-icon.svg?alt=media&token=0c69959f-bf8f-4c40-bbbd-7718f09c8598" alt=""></span>
+                            <div class="dropdown">
+                                <a href="#">Hay nhất</a>
+                                <a href="#">Mới nhất</a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="comment-container">
+                        <div class="comment-item">
+                            <img src="https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1" alt="">
+                            <div>
+                                <a href="#">Phạm Đình Hoàng</a>
+                                <div>
+                                    <span>&#9733;</span>
+                                    <span>6</span>
+                                </div>
+                                <span>04/07/2019</span>
+                            </div>
+                            <div>
+                                <p>Không biết do mình xem phim không thích kiểu SAH trẻ trâu như người
+                                    nhện mà mình thấy phim khá bình thường. Mọi tình tiết khá dễ đoán ra.
+                                    Chắc tại mình xem phân tích nhân vật của Phê Phim trước r nên mới
+                                    xem đã biết trước nhân vật phản diện cũng. Bất ngờ ở aftercredit.
+                                    Nếu không khác theo truyện thì Dì May hay MJ thế nào cũng chết.
+                                    Vì Peter đã bị lộ danh tính</p>
+                                <div>
+                                    <img src="https://firebasestorage.googleapis.com/v0/b/codeintensive.appspot.com/o/images%2Fheart-icon.svg?alt=media&token=06247f4e-72f2-4854-a6c0-1c2d6fc33ee1" alt="">
+                                    <span>12</span>
+                                </div>
+                            </div>    
+                        </div>
+                    </section>
+                </article>
             </article>
         </div>
     </div>

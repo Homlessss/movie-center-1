@@ -32,7 +32,7 @@
 
 .thread-header-info p {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 1rem;
+    font-size: 0.875rem;
 }
 
 .thread-header-vote {
@@ -82,7 +82,7 @@
 
 .thread-aside {
     display: grid;
-    grid-row-gap: 44px;
+    grid-row-gap: 24px;
 }
 
 .thread-aside .poster-img {
@@ -167,7 +167,7 @@
 
 .thread-info p {
     color: white;
-    font-size: 1rem;
+    font-size: 0.875rem;
     line-height: 1.6;
 }
 
@@ -205,6 +205,11 @@
 
 .rating-form {
     display: grid;
+}
+
+.thread-vote {
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+    margin-bottom: 20px;
 }
 
 .thread-vote .title {
@@ -255,7 +260,7 @@
     border: none;
     border-radius: 6px;
     color: white;
-    font-size: 1rem;
+    font-size: 0.875rem;
     padding: 12px;
     overflow: hidden;
     resize: none;
@@ -268,16 +273,29 @@
 
 .rating-form textarea::placeholder {
     color: rgba(255, 255, 255, 0.3);
-    font-size: 1rem;
+    font-size: 0.875rem;
 }
 
 .rating-form-btn {
     color: white;
-    font-size: 1rem;
+    font-size: 0.875rem;
     background: #6541CD;
-    width: 132px;
+    width: 120px;
     height: 40px;
     border: none;
     border-radius: 100px;
     justify-self: end;
+    margin-bottom: 20px;
+}
+
+/* --------- COMMENT ---------- */
+
+.comment-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 5fr;
+    justify-items: start
+}
+
+.comment-sort span {
+    color: #36BADD;
 }
