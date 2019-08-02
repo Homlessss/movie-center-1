@@ -64,8 +64,9 @@ controller.generateScore = function (film) {
         return average + '.0'
     }
 
-    return average
+    return Math.round(average*10)/10
 }
+
 
 controller.setFilmState = function (dateObject) {
     let releaseDate = Date.parse(dateObject);
@@ -106,7 +107,7 @@ controller.convertFilmData = async function(snapshot) {
     return filmData;
 }
 
-controller.getReviewInfo = async function(reviews) {
+controller.getReviewInfo = function(reviews) {
     reviews.map(getReviewerInfo)
     return reviews
 

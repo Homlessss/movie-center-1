@@ -26,46 +26,8 @@ return `
                 </div>
                 <section class="related" id="related">
                     <h4>Liên quan</h4>
-                    <section class="related-item-wrapper">
-                        <div class="related-item">
-                            <div>
-                                <div class="img-wrapper">
-                                    <img src="https://lh3.googleusercontent.com/LB0KWzHlEQHpWnHooMYy9RgKtl998urV1dFOojd__lqrC4-RmN0sKkXCIzLTv266vrA9mIQ=s85"
-                                        alt="">
-                                </div>
-                                <span class="name">Spider Man Far From Home</span>
-                            </div>
-                            <div>
-                                <span class="star">&#9733;</span>
-                                <span class="score">8.2</span>
-                            </div>
-                        </div>
-                        <div class="related-item">
-                            <div>
-                                <div class="img-wrapper">
-                                    <img src="https://lh3.googleusercontent.com/LB0KWzHlEQHpWnHooMYy9RgKtl998urV1dFOojd__lqrC4-RmN0sKkXCIzLTv266vrA9mIQ=s85"
-                                        alt="">
-                                </div>
-                                <span class="name">Spider Man Far From Home</span>
-                            </div>
-                            <div>
-                                <span class="star">&#9733;</span>
-                                <span class="score">8.2</span>
-                            </div>
-                        </div>
-                        <div class="related-item">
-                            <div>
-                                <div class="img-wrapper">
-                                    <img src="https://lh3.googleusercontent.com/LB0KWzHlEQHpWnHooMYy9RgKtl998urV1dFOojd__lqrC4-RmN0sKkXCIzLTv266vrA9mIQ=s85"
-                                        alt="">
-                                </div>
-                                <span class="name">Spider Man Far From Home</span>
-                            </div>
-                            <div>
-                                <span class="star">&#9733;</span>
-                                <span class="score">8.2</span>
-                            </div>
-                        </div>
+                    <section class="related-item-wrapper" id="related-film">
+                        
                     </section>
                 </section>
             </aside>
@@ -91,7 +53,7 @@ return `
                 </section>
                 <section class="thread-vote">
                     <p class="title">Đánh giá</p>
-                    <form action="" class="rating-form">
+                    <form action="" class="rating-form" id="rating-form">
                         <div class="star-container">
                             <input class="star" type="radio" id="star-10" name="star" value="10">
                             <label class="star" for="star-10">&#9733;</label>
@@ -115,7 +77,7 @@ return `
                             <label class="star" for="star-1">&#9733;</label>
                         </div>
                         <textarea name="content" id="" placeholder="Bình luận"></textarea>
-                        <button class="rating-form-btn">Gửi đánh giá</button>
+                        <button class="rating-form-btn" id="review-btn">Gửi đánh giá</button>
                     </form>
                 </section>
                 <article class="thread-comment">
@@ -168,4 +130,21 @@ components.addReviewsItems = function(review) {
     </div>
     `
     return html
+}
+
+components.addRelatedItem = function(film) {
+    return `
+    <div class="related-item">
+        <div>
+            <div class="img-wrapper">
+                <img src="${film.posterImg}"  alt="">
+            </div>
+            <span class="name">${film.name.mainName}</span>
+        </div>
+        <div>
+            <span class="star">&#9733;</span>
+            <span class="score">${film.score.movieCenter}</span>
+        </div>
+    </div>
+    `
 }

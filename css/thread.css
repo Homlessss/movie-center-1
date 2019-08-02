@@ -83,6 +83,11 @@
 .thread-aside {
     display: grid;
     grid-row-gap: 24px;
+    grid-template-rows: 540px 1fr;
+}
+
+.thread-aside > div img {
+    height: 540px;
 }
 
 .thread-aside .poster-img {
@@ -238,10 +243,6 @@
     transition: .2s ease-in-out;
 }
 
-.star-container label.star::selection {
-    background: transparent;
-}
-
 .star-container label.star:hover ~ label.star,
 .star-container label.star:hover {
     color: #FD2D55
@@ -318,8 +319,8 @@
 .comment-item {
     display: grid;
     grid: auto auto / 48px 1fr;
-    grid-gap: 4px 20px;
-    margin-bottom: 28px;
+    grid-gap: 8px 20px;
+    margin-bottom: 16px;
 }
 
 .comment-item a {
