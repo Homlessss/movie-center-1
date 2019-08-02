@@ -121,7 +121,7 @@ components.addReviewsItems = function(review) {
         <div class="content">
             <p class="body-text">${review.content}</p>
             <div class="heart-container">
-                <div class="heart">
+                <div class="heart" id="react-btn" data-time="${review.timeStamp}">
                     <img src="https://firebasestorage.googleapis.com/v0/b/codeintensive.appspot.com/o/images%2Fheart-icon.svg?alt=media&token=06247f4e-72f2-4854-a6c0-1c2d6fc33ee1" alt="">
                 </div>
                 <span>${review.reactions.length}</span>

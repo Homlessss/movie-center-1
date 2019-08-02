@@ -4,7 +4,6 @@ controller.initThreadPage = function (id) {
     });
 
     controller.addThreadInfo(filmData);
-    // controller.addThreadReviews(filmData.reviews);
     controller.addThreadRelated(id);
     controller.listenReviewsUpdate(id);
 }
@@ -16,6 +15,7 @@ controller.addThreadInfo = function (filmData) {
 
 controller.addThreadReviews = function (reviews) {
     let reviewComponents = document.getElementById('comment-container');
+    reviewComponents.innerHTML = ''
     for (let review of reviews) {
         reviewComponents.innerHTML += components.addReviewsItems(review)
     }
@@ -44,14 +44,19 @@ controller.listenReviewsUpdate = function (id) {
     firebase.firestore().collection('films').doc(id)
         .onSnapshot(async function (snapshot) {
             let reviews = snapshot.data().reviews;
-            convertedReviews = await Promise.all(reviews.map(async function(review) {
+            convertedReviews = await Promise.all(reviews.map(async function (review) {
                 let reviewer = await firebase.firestore().collection('users').doc(review.user).get();
                 review.photoURL = reviewer.data().photoURL;
                 review.displayName = reviewer.data().displayName;
                 review.timeStampString = controller.generateDate(review.timeStamp.toDate());
                 return review
-            }))
-            controller.addThreadReviews(convertedReviews)
+            }));
+            convertedReviews.sort(function (a, b) {
+                return b.timeStamp.seconds - a.timeStamp.seconds
+            })
+            console.log(convertedReviews, model.currentFilm);
+            controller.addThreadReviews(convertedReviews);
+            controller.addReactBtnEvent();
         })
 }
 
@@ -76,16 +81,18 @@ controller.addReviewBtnEvent = function (id) {
                 reviews: firebase.firestore.FieldValue.arrayUnion(review)
             })
         } catch (error) {
-            console.log(error.message)
+            alert(error.message)
         }
     }
 }
 
-controller.validateReviewForm = function (form) {
-    if (!form.content.value) {
-        throw new Error('Bình luận không được để trống')
+controller.addReactBtnEvent = function () {
+    let reactButtons = document.querySelectorAll('.heart')
+
+    for (let reactButton of reactButtons) {
+        reactButton.onclick = function() {
+            console.log(reactButton.dataset.time)
+        }
     }
-    if (!form.star.value) {
-        throw new Error('Bạn chưa đánh giá phim')
-    }
+
 }

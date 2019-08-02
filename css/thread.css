@@ -290,7 +290,22 @@
     border: none;
     border-radius: 100px;
     justify-self: end;
-    margin-bottom: 20px;
+    margin: 10px 0px 20px 0;
+    cursor: pointer;
+}
+
+.rating-form-btn:hover {
+    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.24);
+    transition: .1s ease-in-out;
+}
+
+.rating-form-btn:active {
+    background: none;
+    border: 1px solid #6541CD;
+}
+
+.rating-form-btn:focus {
+    outline: none;
 }
 
 /* --------- COMMENT ---------- */
@@ -351,17 +366,25 @@
     font-weight: 500;
 }
 
+.title-wrapper > div:first-child {
+    display: flex;
+}
+
 .title-wrapper .score {
     border: 1px solid white;
     border-radius: 100px;
-    padding: 4px 0 4px 7px;
     display: inline-block;
     width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 0;
 }
 
 .title-wrapper .score span:first-child {
     color: #FD2D55;
     font-size: 1rem;
+    margin-right: 2px;
 }
 
 .title-wrapper .score span:last-child {
@@ -391,6 +414,12 @@
     align-items: center;
     justify-content: center;
     border-radius: 100px;
+    cursor: pointer;
+    transition: .1s ease-in-out;
+}
+
+.heart-container .heart:hover {
+    background: #FD2D55
 }
 
 .heart-container {

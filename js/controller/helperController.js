@@ -153,3 +153,15 @@ controller.addVoteFilmURLEvent = function() {
         }
     }
 }
+
+controller.validateReviewForm = function (form) {
+    if (!firebase.auth().currentUser) {
+        throw new Error('Vui lòng đăng nhập để đánh giá phim')
+    }
+    if (!form.star.value) {
+        throw new Error('Bạn chưa đánh giá phim')
+    }
+    if (!form.content.value) {
+        throw new Error('Bình luận không được để trống')
+    }
+}
