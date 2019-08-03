@@ -40,7 +40,6 @@
     font-size: 0.875rem;
     line-height: 1;
     padding: 16px;
-    transition: .1s ease-in-out;
 }
 
 .dropdown a:hover {

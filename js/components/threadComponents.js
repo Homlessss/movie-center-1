@@ -11,9 +11,9 @@ return `
             <section class="thread-header-vote">
                 <div>
                     <span class="star">&#9733;</span>
-                    <span class="score">${filmData.score.movieCenter}</span>
+                    <span class="score" id="header-score">${filmData.score.movieCenter}</span>
                 </div>
-                <span>Lượt đánh giá: ${filmData.reviews.length}</span>
+                <span id="header-review">Lượt đánh giá: ${filmData.reviews.length}</span>
             </section>
         </div>
     </header>
@@ -82,12 +82,12 @@ return `
                 </section>
                 <article class="thread-comment">
                     <section class="comment-header">
-                        <p class="sub-header">${filmData.reviews.length} bình luận</p>
+                        <p class="sub-header" id="footer-review">${filmData.reviews.length} bình luận</p>
                         <div class="comment-sort">
-                            <span>Sắp xếp theo <img src="https://firebasestorage.googleapis.com/v0/b/codeintensive.appspot.com/o/icon%2Fdropdown-icon.svg?alt=media&token=0c69959f-bf8f-4c40-bbbd-7718f09c8598" alt=""></span>
-                            <div class="dropdown">
-                                <a href="#">Hay nhất</a>
-                                <a href="#">Mới nhất</a>
+                            <span id="review-sort-btn">Sắp xếp theo <img src="https://firebasestorage.googleapis.com/v0/b/codeintensive.appspot.com/o/icon%2Fdropdown-icon.svg?alt=media&token=0c69959f-bf8f-4c40-bbbd-7718f09c8598" alt=""></span>
+                            <div class="dropdown" id="sort-dropdown">
+                                <a href="#" id="reaction-sort">Hay nhất</a>
+                                <a href="#" id="date-sort">Mới nhất</a>
                             </div>
                         </div>
                     </section>
@@ -103,6 +103,12 @@ return `
 }
 
 components.addReviewsItems = function(review) {
+    let color
+    if (review.reactions.includes(firebase.auth().currentUser.uid)) {
+        color = true
+    } else {
+        color = false
+    }
     let html = `
     <div class="comment-item">
         <div class="avatar">
@@ -121,7 +127,7 @@ components.addReviewsItems = function(review) {
         <div class="content">
             <p class="body-text">${review.content}</p>
             <div class="heart-container">
-                <div class="heart" id="react-btn" data-time="${review.timeStamp}">
+                <div class="heart ${color}" id="react-btn" data-id="${review.id}">
                     <img src="https://firebasestorage.googleapis.com/v0/b/codeintensive.appspot.com/o/images%2Fheart-icon.svg?alt=media&token=06247f4e-72f2-4854-a6c0-1c2d6fc33ee1" alt="">
                 </div>
                 <span>${review.reactions.length}</span>
@@ -139,7 +145,7 @@ components.addRelatedItem = function(film) {
             <div class="img-wrapper">
                 <img src="${film.posterImg}"  alt="">
             </div>
-            <span class="name">${film.name.mainName}</span>
+            <span class="name related-item-name" data-id="${film.id}">${film.name.mainName}</span>
         </div>
         <div>
             <span class="star">&#9733;</span>

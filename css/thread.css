@@ -139,6 +139,16 @@
 .related-item .name {
     color: white;
     font-size: 1rem;
+    cursor: pointer;
+    transition: .1s ease-in-out
+}
+
+.related-item .name:hover {
+    color: #36BADD
+}
+
+.related-item .name:active {
+    color: white
 }
 
 .related-item div:last-child {
@@ -323,12 +333,14 @@
 
 .comment-sort {
     position: relative;
+    cursor: pointer;
 }
 
 .comment-sort .dropdown {
     position: absolute;
     right: 0;
-    display: none;
+    visibility: hidden;
+    z-index: 1;
 }
 
 .comment-item {
@@ -415,11 +427,16 @@
     justify-content: center;
     border-radius: 100px;
     cursor: pointer;
-    transition: .1s ease-in-out;
+    transition: .1s ease-in-out
 }
 
 .heart-container .heart:hover {
-    background: #FD2D55
+    transform: scale(2, 2)
+}
+
+.heart-container .heart:active {
+    background: #6541CD;
+    transform: scale(1, 1)
 }
 
 .heart-container {
