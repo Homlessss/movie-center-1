@@ -1,6 +1,11 @@
 components.thread = function(filmData) {
 return `
 <div class="thread-page">
+    <div class="video-modal" id="video-modal">
+        <div class="video-modal-content">
+            ${filmData.trailerIframe}
+        </div>
+    </div>
     <header class="thread-header-container">
         <div class="thread-header-wrapper">
             <section class="thread-header-info">
@@ -20,9 +25,12 @@ return `
     <div class="thread-body-container">
         <div class="thread-body-wrapper">
             <aside class="thread-aside">
-                <div>
+                <div id="thread-video">
                     <img class="poster-img" src="${filmData.posterImg}"
                         alt="">
+                    <div class="img-overlay">
+                        <img src="img/play-icon.svg" alt="">
+                    </div>
                 </div>
                 <section class="related" id="related">
                     <h4>Liên quan</h4>
@@ -154,3 +162,4 @@ components.addRelatedItem = function(film) {
     </div>
     `
 }
+

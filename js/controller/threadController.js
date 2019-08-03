@@ -4,9 +4,28 @@ controller.initThreadPage = function (id) {
     });
 
     controller.addThreadInfo(filmData);
+    controller.addVideoEvent();
     controller.addThreadRelated(id);
     controller.listenReviewsUpdate(id, 'date');
     controller.setReviewSortMethod(id);
+}
+
+controller.addVideoEvent = function () {
+    let videoTrigger = document.getElementById('thread-video');
+    let videoModal = document.getElementById('video-modal');
+
+    videoTrigger.onclick = showVideo;
+    videoModal.onclick = hideVideo;
+
+    function showVideo() {
+        videoModal.style.visibility = 'visible'
+    }
+
+    function hideVideo(e) {
+        if (e.target === videoModal) {
+            videoModal.style.visibility = 'hidden'
+        }
+    }
 }
 
 controller.addThreadInfo = function (filmData) {
@@ -50,7 +69,7 @@ controller.addThreadRelated = function (id) {
     function addRelatedFilmEvent() {
         let relatedFilms = document.querySelectorAll('.related-item-name');
         for (let film of relatedFilms) {
-            film.onclick = function() {
+            film.onclick = function () {
                 controller.initThreadPage(film.dataset.id)
             }
         }
