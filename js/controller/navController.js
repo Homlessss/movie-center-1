@@ -14,3 +14,17 @@ controller.setNavInfo = function() {
     userName.innerText = authUser.displayName;
     userEmail.innerText = authUser.email;
 }
+
+controller.showSearchResult = function(searchInput) {
+    let filmDatas = model.allFilmDatas;
+    let searchResult = filmDatas.filter(filmFilter);
+
+    function filmFilter(filmData) {
+        let mainName = filmData.name.mainName;
+        let subName = filmData.name.subName;
+        let starring = filmData.starring;
+        let compareString = (mainName + subName + starring).toLowerCase();
+        return compareString.includes(searchInput.toLowerCase())
+    }
+    return searchResult;
+}

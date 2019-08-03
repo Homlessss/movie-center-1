@@ -31,8 +31,8 @@
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .search-container input {
@@ -175,4 +175,48 @@
 .login-url-btn:active {
     color: #36BADD;
     background: none;
+}
+
+/* ------ SEARCH RESULT ----- */
+.search-container {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center
+}
+
+#search-result {
+    position: absolute;
+    background: #202134;
+    top: 72px;
+    left: 0px;
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.24);
+    visibility: hidden;
+}
+
+#search-result li {
+    list-style: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    padding: 16px 16px;
+    width: 100%;
+}
+
+#search-result li:hover {
+    background: #303142;
+    color: white;
+}
+
+#search-result li:active {
+    background: none;
+}
+
+#search-result li:first-child {
+    border-radius: 6px 6px 0 0
+}
+
+#search-result li:last-child {
+    border-radius: 0 0 6px 6px
 }

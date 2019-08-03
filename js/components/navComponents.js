@@ -6,7 +6,9 @@ components.nav = `
             <h1>MovieCenter</h1>
         </div>
         <div class="search-container">
-            <input type="text" placeholder="Tìm kiếm">
+            <input type="text" placeholder="Tìm kiếm" id="search-input">
+            <ul id="search-result">
+            </ul>
         </div>
         <div class="info-container" id="nav-user-info">
             
@@ -44,3 +46,4 @@ components.navAdminSettingMenu= `
     <li><a href="#" id="management-url">Quản lí</a></li>
     <li><a href="#" id="sign-out-btn">Đăng xuất</a></li>
 `
+

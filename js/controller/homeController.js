@@ -9,6 +9,7 @@ controller.addShownFilmComponent = function(filmDatas) {
     shownFilms = filmDatas.filter(function(film) {
         return film.state === 1;
     })
+    model.shownFilms = shownFilms;
     let shownFilmsPages = controller.paginate(shownFilms, 5);
     model.shownFilmsPages = shownFilmsPages;
     view.homeShownFilmComponent(shownFilmsPages[0]);
