@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background: #202134;
+}
+
 #nav-bar {
     position: fixed;
     width: 100%;
@@ -52,4 +56,53 @@
 
 .dropdown a:hover:last-child {
     border-radius: 0 0 6px 6px;
+}
+
+.primary-btn {
+    color: white;
+    font-size: 1rem;
+    background: #6541CD;
+    height: 40px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    padding: 0 20px;
+    transition: box-shadow .1s ease-in-out;
+}
+
+.primary-btn:hover {
+    background: #4A2AA8;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.24)
+}
+
+.primary-btn:active {
+    background: #6541CD;
+}
+
+.primary-btn:focus {
+    outline: none;
+}
+
+.secondary-btn {
+    color: #36BADD;
+    font-size: 1rem;
+    background: none;
+    height: 40px;
+    border: 1px solid #36BADD;
+    border-radius: 100px;
+    cursor: pointer;
+    padding: 0 20px
+}
+
+.secondary-btn:hover {
+    background: #36BADD;
+    color: white;
+}
+
+.secondary-btn:active {
+    background: none;
+}
+
+.secondary-btn:focus {
+    outline: none;
 }

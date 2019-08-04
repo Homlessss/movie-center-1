@@ -18,12 +18,14 @@ controller.addVideoEvent = function () {
     videoModal.onclick = hideVideo;
 
     function showVideo() {
-        videoModal.style.visibility = 'visible'
+        videoModal.style.visibility = 'visible';
+        videoModal.style.opacity = '1';
     }
 
     function hideVideo(e) {
         if (e.target === videoModal) {
-            videoModal.style.visibility = 'hidden'
+            videoModal.style.visibility = 'hidden';
+            videoModal.style.opacity = '0';
         }
     }
 }

@@ -12,20 +12,32 @@ view.nav = function () {
     function addSearchSuggestions() {
         let input = document.getElementById('search-input');
         let searchResult = document.getElementById('search-result');
-        input.onfocus = function () {
+
+        input.addEventListener('focusin', onInputFocus)
+
+        function onInputFocus(event) {
+            event.stopPropagation();
             searchResult.style.visibility = 'visible';
-            renderSearchResult(model.shownFilms)
+            console.log(model.shownFilms);
+            renderSearchResult(model.shownFilms);
+            document.addEventListener('click', offClick)
+        }
+
+        function offClick(event) {
+            if (event.target !== input) {
+                searchResult.style.visibility = 'hidden';
+            }
         }
     }
 
     function renderSearchResult(filmDatas) {
         let searchResult = document.getElementById('search-result');
-        filmDatas = filmDatas.splice(0, 5);
+        topFilmDatas = filmDatas.slice(0, 5);
 
         searchResult.innerHTML = '';
-        for (let film in filmDatas) {
+        for (let film in topFilmDatas) {
             searchResult.innerHTML += `
-                <li class="search-item" data-id="${filmDatas[film].id}">${filmDatas[film].name.mainName}</li>
+                <li class="search-item" data-id="${topFilmDatas[film].id}">${topFilmDatas[film].name.mainName}</li>
             `
         }
         addFilmURLEvent();
@@ -44,7 +56,8 @@ view.nav = function () {
         let searchResult = document.getElementById('search-result');
         let input = document.getElementById('search-input');
         for (let item of searchItems) {
-            item.onclick = function(e) {
+            item.onclick = function (event) {
+                event.stopPropagation();
                 view.threadScreen(item.dataset.id)
                 searchResult.style.visibility = 'hidden';
                 input.value = ''
@@ -70,7 +83,7 @@ view.adminNav = function () {
     view.setHTML('nav-user-info', components.navUserInfo);
     view.setHTML('nav-setting-menu', components.navAdminSettingMenu);
     view.navAddSettingMenuEvent();
-    controller.setNavInfo()
+    controller.setNavInfo();
 }
 
 view.navAddSettingMenuEvent = function () {
@@ -79,7 +92,7 @@ view.navAddSettingMenuEvent = function () {
     let signOutBtn = document.getElementById('sign-out-btn');
 
     profileURL.onclick = function () {
-        console.log('profile page')
+        view.profileScreen();
     }
     signOutBtn.onclick = controller.signOut;
     if (managementURL) {

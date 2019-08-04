@@ -1,0 +1,266 @@
+.profile-page {
+    background: #202134;
+    display: flex;
+    justify-content: center;
+    margin: 120px 0;
+}
+
+.profile-wrapper {
+    width: 1230px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-column-gap: 24px;
+}
+
+/* ---------aside--------- */
+
+.profile-aside {
+    background: #292A3C;
+    display: grid;
+    grid-template-rows: 3fr 2fr;
+    border-radius: 6px;
+}
+
+.profile-aside > section {
+    display: grid;
+    justify-items: center;
+    margin: 48px 0;
+    grid-row-gap: 4px;
+}
+
+.aside-ava-wrapper {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 200px;
+}
+
+.aside-ava-wrapper img {
+    width: 100px;
+    height: 100px;
+}
+
+.profile-aside .aside-name {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.profile-aside .aside-email {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+}
+
+/* ----------body----------- */
+
+.profile-body {
+    background: #292A3C;
+    padding: 40px 32px;
+    border-radius: 6px;
+}
+
+.profile-body h4 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin-bottom: 28px
+}
+
+.profile-form {
+    display: grid;
+    width: 50%;
+    grid-row-gap: 8px;
+    margin-bottom: 16px;
+}
+
+.fix-btn {
+    color: #36BADD;
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
+.fix-btn:hover {
+    text-decoration: underline;
+}
+
+.profile-form label:not(.fix-btn) {
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 4px;
+}
+
+.profile-form input {
+    color: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    height: 48px;
+    background: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    padding-left: 12px;
+    pointer-events: none;
+}
+
+.profile-form input:focus {
+    outline: none;
+    border: 1px solid white;
+    color: white;
+}
+
+.profile-form-btn {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    background: rgba(255, 255, 255, 0.3);
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    pointer-events: none;
+    margin-right: 8px;
+}
+
+.profile-form-btn:hover {
+    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.24);
+    transition: .1s ease-in-out;
+}
+
+.profile-form-btn:active {
+    background: none;
+    border: 1px solid #6541CD;
+}
+
+.profile-form-btn:focus {
+    outline: none;
+}
+
+.profile-form-btn-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.loader-img {
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+}
+
+/* ------- upload avatar trigger ------ */
+
+.aside-ava-wrapper {
+    position: relative;
+}
+
+.add-img-icon {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: .1s ease-in-out;
+    background: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.add-img-icon img {
+    width: 50px;
+    height: 50px;
+    opacity: .7;
+}
+
+.add-img-icon:hover {
+    opacity: 1;
+}
+
+/* ------ UPLOAD AVATAR MODAL----- */
+
+.ava-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s ease-in;
+}
+
+.ava-modal-content {
+    width: 396px;
+    background: #292A3C;
+    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.54);
+    border-radius: 6px;
+}
+
+.ava-modal-body {
+    height: 396px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    padding: 16px;
+    position: relative;
+}
+
+.ava-modal-body input {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.ava-modal-body:hover .ava-add-img-icon {
+    opacity: .7;
+}
+
+.ava-add-img-icon {
+    position: absolute;
+    widows: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: .3;
+    transition: .1s ease-in-out
+}
+
+.ava-prepare-img-wrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 1000px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.ava-modal-footer {
+    padding: 16px 16px;
+    display: flex;
+    align-items: center;
+}
+
+.ava-modal-footer img {
+    width: 30px;
+    height: 30px;
+    opacity: .7;
+    visibility: hidden;
+}
+
+#ava-save-btn {
+    margin-right: 8px;
+}
+
+#ava-cancel-btn {
+    margin-right: 8px;
+}
