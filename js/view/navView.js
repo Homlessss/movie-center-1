@@ -18,7 +18,6 @@ view.nav = function () {
         function onInputFocus(event) {
             event.stopPropagation();
             searchResult.style.visibility = 'visible';
-            console.log(model.shownFilms);
             renderSearchResult(model.shownFilms);
             document.addEventListener('click', offClick)
         }

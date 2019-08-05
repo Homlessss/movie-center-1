@@ -114,7 +114,7 @@ return `
 
 components.addReviewsItems = function(review) {
     let color = false;
-    if (firebase.firestore().currentUser) {
+    if (firebase.auth().currentUser) {
         if (review.reactions.includes(firebase.auth().currentUser.uid)) {
             color = true
         }
