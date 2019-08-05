@@ -5,7 +5,7 @@ controller.register = async function(registerValue) {
     }
 }
 
-controller.login = function(loginValue) {
+controller.login = async function(loginValue) {
     if (controller.validateLoginForm(loginValue)) {
         await model.login(loginValue);
         view.homeScreen();
