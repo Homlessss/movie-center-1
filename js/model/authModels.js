@@ -1,7 +1,7 @@
 model.register = async function(registerValue) {
     try {
         await firebase.auth().createUserWithEmailAndPassword(registerValue.email, registerValue.password);
-        model.firstUpdateProfile(registerValue);
+        await model.firstUpdateProfile(registerValue);
     } catch(error) {
         view.setText('register-error', error.message)
     }

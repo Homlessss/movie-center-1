@@ -1,13 +1,13 @@
-controller.register = function(registerValue) {
+controller.register = async function(registerValue) {
     if (controller.validateRegisterForm(registerValue)) {
-        model.register(registerValue);
+        await model.register(registerValue);
         view.homeScreen();
     }
 }
 
 controller.login = function(loginValue) {
     if (controller.validateLoginForm(loginValue)) {
-        model.login(loginValue);
+        await model.login(loginValue);
         view.homeScreen();
     }
 }
