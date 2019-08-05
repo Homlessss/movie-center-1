@@ -48,16 +48,37 @@ view.adminAddTableRow = function(films) {
 }
 
 view.adminPostFilmScreen = function() {
-    document.getElementById('app').innerHTML = components.adminPostFilmScreen;
-    let posterImg = document.getElementById('poster-img');
-    let addFilmBtn = document.getElementById('post-film-btn');
+    initScreen();
+    addCheckBoxEvent()
 
-    posterImg.onchange = controller.previewImg;
-    addFilmBtn.onclick = addFilmHandler;
-
-    function addFilmHandler(e) {
-        e.preventDefault();
-        controller.addFilm();
+    function initScreen() {
+        document.getElementById('app').innerHTML = components.adminPostFilmScreen;
+        let posterImg = document.getElementById('poster-img');
+        let addFilmBtn = document.getElementById('post-film-btn');
+    
+        posterImg.onchange = controller.previewImg;
+        addFilmBtn.onclick = addFilmHandler;
+    
+        function addFilmHandler(e) {
+            e.preventDefault();
+            controller.addFilm();
+        }
     }
+    
+    function addCheckBoxEvent() {
+        let checkboxs = document.querySelectorAll('.checkbox-wrapper');
+        
+        for (let checkbox of checkboxs) {
+            let inputCheckBox = checkbox.children[0]
+            inputCheckBox.addEventListener('change', onChangeCheckBoxColor);
 
+            function onChangeCheckBoxColor() {
+                if (inputCheckBox.checked) {
+                    checkbox.style.background = '#6541CD'
+                } else {
+                    checkbox.style.background = 'rgba(255, 255, 255, 0.08)'
+                }
+            }
+        }
+    }
 }

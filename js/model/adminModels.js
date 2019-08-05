@@ -1,5 +1,8 @@
 model.addFilm = async function (film) {
-    firebase.firestore().collection('films').add(film)
+    await firebase.firestore().collection('films').add(film);
+    alert('Thêm phim thành công');
+    location.reload();
+
 }
 
 model.convertImgToURL = async function (imgFile, imgPath) {

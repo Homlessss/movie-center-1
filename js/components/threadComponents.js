@@ -84,7 +84,7 @@ return `
                             <input class="star" type="radio" id="star-1" name="star" value="1">
                             <label class="star" for="star-1">&#9733;</label>
                         </div>
-                        <textarea name="content" id="" placeholder="Bình luận"></textarea>
+                        <textarea name="content" id="" placeholder="Bình luận" spellcheck="false"></textarea>
                         <button class="rating-form-btn" id="review-btn">Gửi đánh giá</button>
                     </form>
                 </section>

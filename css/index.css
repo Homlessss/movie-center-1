@@ -23,11 +23,18 @@ body {
 .body-text {
     color: white;
     font-size: 0.875rem;
+    line-height: 1.6;
 }
 
 .sub-header {
     color: white;
     font-size: 1rem;
+}
+
+.sub-title {
+    color: #36BADD;
+    font-size: 2rem;
+    font-weight: 500;
 }
 
 .dropdown {
@@ -105,4 +112,23 @@ body {
 
 .secondary-btn:focus {
     outline: none;
+}
+
+.input-border {
+    font-size: 1rem;
+    background: none;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.7)
+}
+
+.input-border::placeholder {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.3)
+}
+
+.input-border:focus {
+    outline: none;
+    border: 1px solid #36BADD;
+    color: white
 }

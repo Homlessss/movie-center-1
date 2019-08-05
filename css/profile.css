@@ -264,3 +264,8 @@
 #ava-cancel-btn {
     margin-right: 8px;
 }
+
+.add-film-input input {
+    height: 40px;
+    padding-left: 12px;
+}
