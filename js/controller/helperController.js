@@ -129,7 +129,6 @@ controller.loadAllFilms = async function() {
         let filmData = await controller.convertFilmData(doc);
         filmDatas.push(filmData);
     }
-    console.log(filmDatas)
     model.allFilmDatas = filmDatas;
     return filmDatas;
 }
