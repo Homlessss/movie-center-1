@@ -93,8 +93,10 @@ controller.listenReviewsUpdate = function (id, sortMethod) {
             convertedReviews = controller.sortReview(convertedReviews, sortMethod);
             controller.addThreadReviews(convertedReviews);
             controller.updateThreadScore(snapshot);
-            controller.addReactBtnEvent();
-            controller.setReactionColor();
+            if (firebase.auth().currentUser) {
+                controller.setReactionColor();
+                controller.addReactBtnEvent();
+            }
         })
 }
 

@@ -1,3 +1,5 @@
+// import { userInfo } from "os";
+
 components.thread = function(filmData) {
 return `
 <div class="thread-page">
@@ -111,11 +113,11 @@ return `
 }
 
 components.addReviewsItems = function(review) {
-    let color
-    if (review.reactions.includes(firebase.auth().currentUser.uid)) {
-        color = true
-    } else {
-        color = false
+    let color = false;
+    if (firebase.firestore().currentUser) {
+        if (review.reactions.includes(firebase.auth().currentUser.uid)) {
+            color = true
+        }
     }
     let html = `
     <div class="comment-item">
