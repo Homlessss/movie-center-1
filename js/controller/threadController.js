@@ -201,7 +201,9 @@ controller.addReactBtnEvent = function () {
                 clickedReviewReactions.push(uid)
             }
 
-            currentFilmSnapshot.update({ reviews: currentFilmReviews })
+            currentFilmSnapshot.update({
+                reviews: currentFilmReviews
+            })
         }
     }
 }
@@ -215,4 +217,28 @@ controller.updateThreadScore = function (film) {
     headerScore.innerText = controller.generateScore(film);
     headerReview.innerText = 'Lượt đánh giá ' + numOfReviews;
     footerReview.innerText = numOfReviews + ' bình luận';
+}
+
+module.exports = {
+    initThreadPage,
+    addVideoEvent,
+    showVideo,
+    hideVideo,
+    addThreadInfo,
+    addThreadReviews,
+    addThreadRelated,
+    sortRelatedFilm,
+    addRelatedFilm,
+    addRelatedFilmEvent,
+    listenReviewsUpdate,
+    sortReview,
+    setReviewSortMethod,
+    onReactSort,
+    onDateSort,
+    onVisibilitySortBtn,
+    setReactionColor,
+    addReviewBtnEvent,
+    onReview,
+    addReactBtnEvent,
+    updateThreadScore
 }

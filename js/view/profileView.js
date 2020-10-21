@@ -100,11 +100,15 @@ view.uploadAvaHandler = function () {
         let displayName = currentUser.displayName;
 
         imgURL = await model.convertImgToURL(avatarFile, 'userAvatars/' + displayName);
-        await currentUser.updateProfile({ photoURL: imgURL });
+        await currentUser.updateProfile({
+            photoURL: imgURL
+        });
         offLoaderIcon();
-        await firebase.firestore().collection('users').doc(currentUser.uid).update({ photoURL: imgURL });
+        await firebase.firestore().collection('users').doc(currentUser.uid).update({
+            photoURL: imgURL
+        });
         alert('Cập nhật thành công');
-        location.reload(); 
+        location.reload();
 
     }
 
@@ -117,4 +121,23 @@ view.uploadAvaHandler = function () {
         let loader = document.getElementById('ava-modal-loader');
         loader.style.visibility = 'hidden'
     }
+}
+
+module.exports = {
+    profileScreen,
+    initProfileScreen,
+    addProfileUpdateEvent,
+    onUnlockForm,
+    onEnableFormBtn,
+    onUpdateDisplayName,
+    showUploadAvaModal,
+    showAvaModal,
+    offAvaModal,
+    onCancelUpload,
+    uploadAvaHandler,
+    onPrepareImg,
+    onloadend,
+    onUploadAva,
+    showLoaderIcon,
+    offLoaderIcon
 }

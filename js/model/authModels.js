@@ -1,13 +1,13 @@
-model.register = async function(registerValue) {
+model.register = async function (registerValue) {
     try {
         await firebase.auth().createUserWithEmailAndPassword(registerValue.email, registerValue.password);
         await model.firstUpdateProfile(registerValue);
-    } catch(error) {
+    } catch (error) {
         view.setText('register-error', error.message)
     }
 }
 
-model.firstUpdateProfile = async function(registerValue) {
+model.firstUpdateProfile = async function (registerValue) {
     let currentUser = firebase.auth().currentUser;
     let profile = {
         displayName: registerValue.firstName + ' ' + registerValue.lastName,
@@ -18,10 +18,16 @@ model.firstUpdateProfile = async function(registerValue) {
     firebase.firestore().collection('users').doc(currentUser.uid).set(profile);
 }
 
-model.login = async function(loginValue) {
+model.login = async function (loginValue) {
     try {
         await firebase.auth().signInWithEmailAndPassword(loginValue.email, loginValue.password);
-    } catch(error) {
+    } catch (error) {
         view.setText('login-error', error.message)
     }
+}
+
+module.exports = {
+    register,
+    firstUpdateProfile,
+    login
 }

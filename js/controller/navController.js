@@ -1,8 +1,8 @@
-controller.signOut = function() {
+controller.signOut = function () {
     firebase.auth().signOut();
 }
 
-controller.setNavInfo = function() {
+controller.setNavInfo = function () {
     let firstAva = document.getElementById('auth-user-first-ava');
     let secondAva = document.getElementById('auth-user-second-ava');
     let userName = document.getElementById('auth-user-name');
@@ -15,7 +15,7 @@ controller.setNavInfo = function() {
     userEmail.innerText = authUser.email;
 }
 
-controller.showSearchResult = function(searchInput) {
+controller.showSearchResult = function (searchInput) {
     let filmDatas = model.allFilmDatas;
     let searchResult = filmDatas.filter(filmFilter);
 
@@ -27,4 +27,11 @@ controller.showSearchResult = function(searchInput) {
         return compareString.includes(searchInput.toLowerCase())
     }
     return searchResult;
+}
+
+module.exports = {
+    signOut,
+    setNavInfo,
+    showSearchResult,
+    filmFilter
 }

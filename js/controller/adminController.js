@@ -10,6 +10,7 @@ controller.previewImg = function () {
     file ? imgReader.readAsDataURL(file) : posterImgPreview.src = "";
 }
 
+
 controller.addFilm = function () {
     let addFilmForm = document.getElementById('post-film-form');
     let film;
@@ -197,10 +198,28 @@ controller.setNumberOfPage = function () {
     return 'of ' + number
 }
 
-controller.addOnClickEvent = function(nodeList) {
+controller.addOnClickEvent = function (nodeList) {
     for (let node of nodeList) {
-        node.onclick = function(e) {
+        node.onclick = function (e) {
             console.log(e.target.dataset.id)
         }
     }
+}
+
+module.exports = {
+    previewImg,
+    addFilm,
+    addGenre,
+    initFilm,
+    errorHandler,
+    errorMessageHandler,
+    setRealeaseDate,
+    setRated,
+    prepareData,
+    getAllFilm,
+    generateState,
+    generateAverageScore,
+    adminManagementSwitchPage,
+    setNumberOfPage,
+    addOnClickEvent
 }

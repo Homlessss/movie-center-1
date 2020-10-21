@@ -12,8 +12,14 @@ model.convertImgToURL = async function (imgFile, imgPath) {
     return imgURL
 }
 
-model.getAllFilm = async function() {
+model.getAllFilm = async function () {
     let filmsRef = firebase.firestore().collection('films');
     let filmDatas = await filmsRef.orderBy('releaseDate', 'desc').get();
     return filmDatas
+}
+
+module.exports = {
+    addFilm,
+    convertImgToURL,
+    getAllFilm
 }

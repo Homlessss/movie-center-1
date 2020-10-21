@@ -98,3 +98,18 @@ view.navAddSettingMenuEvent = function () {
         managementURL.onclick = view.adminManagementScreen;
     }
 }
+
+module.exports = {
+    nav,
+    initNav,
+    addSearchSuggestions,
+    onInputFocus,
+    offClick,
+    renderSearchResult,
+    addSearchEvent,
+    addFilmURLEvent,
+    guestNav,
+    userNav,
+    adminNav,
+    navAddSettingMenuEvent
+}

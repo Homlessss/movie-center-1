@@ -1,12 +1,12 @@
-controller.addHomeComponents= async function() {
+controller.addHomeComponents = async function () {
     filmDatas = await controller.loadAllFilms();
     controller.addShownFilmComponent(filmDatas);
     controller.addCommingSoonFilmComponent(filmDatas);
     controller.addVoteFilmURLEvent();
 }
 
-controller.addShownFilmComponent = function(filmDatas) {
-    shownFilms = filmDatas.filter(function(film) {
+controller.addShownFilmComponent = function (filmDatas) {
+    shownFilms = filmDatas.filter(function (film) {
         return film.state === 1;
     })
     model.shownFilms = shownFilms;
@@ -40,17 +40,17 @@ controller.addHomePaginateEvent = function () {
     }
 }
 
-controller.castVideoTrailerEvent = function() {
+controller.castVideoTrailerEvent = function () {
     let shownFilms = document.querySelectorAll('.film-item-container');
     for (let shownFilm of shownFilms) {
-        shownFilm.onclick = function(e) {
+        shownFilm.onclick = function (e) {
             // castVideoTrailer(e.target.dataset.id)
             castVideoTrailer(shownFilm.dataset.id)
         }
     }
 
     async function castVideoTrailer(id) {
-        let targetFilms = model.allFilmDatas.find(function(element) {
+        let targetFilms = model.allFilmDatas.find(function (element) {
             return element.id === id;
         })
         view.setHomeVideoTrailer(targetFilms.trailerIframe);
@@ -58,39 +58,39 @@ controller.castVideoTrailerEvent = function() {
 
 }
 
-controller.addCommingSoonFilmComponent = function(filmDatas) {
-    commingSoonFilms = filmDatas.filter(function(film) {
+controller.addCommingSoonFilmComponent = function (filmDatas) {
+    commingSoonFilms = filmDatas.filter(function (film) {
         return film.state === 0;
     })
-    commingSoonFilms = commingSoonFilms.sort(function(a, b) {
+    commingSoonFilms = commingSoonFilms.sort(function (a, b) {
         aDate = new Date(a.releaseDate.seconds);
         bDate = new Date(b.releaseDate.seconds);
-        return aDate  - bDate
+        return aDate - bDate
 
     });
     view.renderCommingSoonFilm(commingSoonFilms);
     controller.addSlideBtnEvent();
 }
 
-controller.addSlideBtnEvent = function() {
+controller.addSlideBtnEvent = function () {
     let rightBtn = document.getElementById('slide-right-btn');
     let leftBtn = document.getElementById('slide-left-btn');
     let slider = document.getElementById('comming-soon-film');
     let slideElement = document.querySelector('.comming-soon-film');
     let slideElementWidth = slideElement.offsetWidth;
     let slideElementMargin = window.getComputedStyle(slideElement).marginRight;
-        slideElementMargin = parseInt(slideElementMargin.split('px')[0]);
+    slideElementMargin = parseInt(slideElementMargin.split('px')[0]);
     let totalElementWidth = slideElementWidth + slideElementMargin;
 
-    rightBtn.onclick = function() {
+    rightBtn.onclick = function () {
         slider.scrollLeft += totalElementWidth;
     }
 
-    leftBtn.onclick = function() {
+    leftBtn.onclick = function () {
         slider.scrollLeft -= totalElementWidth;
     }
 
-    slider.onscroll = function() {
+    slider.onscroll = function () {
         if (slider.scrollLeft === 0) {
             leftBtn.style.visibility = 'hidden'
         } else {
@@ -103,4 +103,15 @@ controller.addSlideBtnEvent = function() {
             rightBtn.style.visibility = 'visible'
         }
     }
+}
+
+module.exports = {
+    addHomeComponents,
+    addShownFilmComponent,
+    addHomePaginateEvent,
+    resetPaginateColor,
+    castVideoTrailerEvent,
+    castVideoTrailer,
+    addCommingSoonFilmComponent,
+    addSlideBtnEvent
 }

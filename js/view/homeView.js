@@ -5,11 +5,11 @@ view.homeScreen = function () {
 
 view.homeShownFilmComponent = function (shownFilms) {
     let shownFilmContainer = document.getElementById('home-shown-film');
-    let firtDotPaginate = document.querySelector('.dot-container')
+    let firstDotPaginate = document.querySelector('.dot-container')
 
     view.setHomeVideoTrailer(shownFilms[0].trailerIframe);
-    firtDotPaginate.children[0].style.background = '#6541CD';
-    
+    firstDotPaginate.children[0].style.background = '#6541CD';
+
     shownFilmContainer.innerHTML = '';
     for (let shownFilm of shownFilms) {
         shownFilmContainer.innerHTML += `
@@ -30,7 +30,7 @@ view.homeShownFilmComponent = function (shownFilms) {
     }
 }
 
-view.setHomeVideoTrailer = function(iframe) {
+view.setHomeVideoTrailer = function (iframe) {
     let homeVideoTrailer = document.getElementById('home-video-trailer');
     homeVideoTrailer.innerHTML = iframe;
 }
@@ -52,4 +52,11 @@ view.renderCommingSoonFilm = function (commingSoonFilms) {
             </div>
         `
     }
+}
+
+module.exports = {
+    homeScreen,
+    homeShownFilmComponent,
+    setHomeVideoTrailer,
+    renderCommingSoonFilm
 }

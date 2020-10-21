@@ -1,23 +1,23 @@
-view.adminManagementScreen = async function() {
+view.adminManagementScreen = async function () {
     document.getElementById('app').innerHTML = components.adminManagement;
     await controller.getAllFilm();
     let addFilmBtn = document.getElementById('add-film-btn');
     let stepUpBtn = document.getElementById('step-up-btn');
     let stepDownBtn = document.getElementById('step-down-btn');
     let numOfPage = document.getElementById('number-of-pages');
-    
-    
+
+
     addFilmBtn.onclick = view.adminPostFilmScreen;
     numOfPage.innerText = controller.setNumberOfPage();
-    stepUpBtn.onclick = function(e) {
+    stepUpBtn.onclick = function (e) {
         controller.adminManagementSwitchPage(e.target.dataset.direction)
     };
-    stepDownBtn.onclick = function(e) {
+    stepDownBtn.onclick = function (e) {
         controller.adminManagementSwitchPage(e.target.dataset.direction)
     };
 }
 
-view.adminAddTableRow = function(films) {
+view.adminAddTableRow = function (films) {
     let tableBody = document.getElementById('table-body');
     tableBody.innerHTML = '';
     for (let film of films) {
@@ -47,7 +47,7 @@ view.adminAddTableRow = function(films) {
     }
 }
 
-view.adminPostFilmScreen = function() {
+view.adminPostFilmScreen = function () {
     initScreen();
     addCheckBoxEvent()
 
@@ -55,19 +55,19 @@ view.adminPostFilmScreen = function() {
         document.getElementById('app').innerHTML = components.adminPostFilmScreen;
         let posterImg = document.getElementById('poster-img');
         let addFilmBtn = document.getElementById('post-film-btn');
-    
+
         posterImg.onchange = controller.previewImg;
         addFilmBtn.onclick = addFilmHandler;
-    
+
         function addFilmHandler(e) {
             e.preventDefault();
             controller.addFilm();
         }
     }
-    
+
     function addCheckBoxEvent() {
         let checkboxs = document.querySelectorAll('.checkbox-wrapper');
-        
+
         for (let checkbox of checkboxs) {
             let inputCheckBox = checkbox.children[0]
             inputCheckBox.addEventListener('change', onChangeCheckBoxColor);
@@ -81,4 +81,15 @@ view.adminPostFilmScreen = function() {
             }
         }
     }
+}
+
+module.exports = {
+    adminManagementScreen,
+    adminPostFilmScreen,
+    adminAddTableRow,
+    adminPostFilmScreen,
+    initScreen,
+    addFilmHandler,
+    addCheckBoxEvent,
+    onChangeCheckBoxColor
 }

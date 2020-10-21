@@ -2,7 +2,7 @@ controller.updateDisplayName = function (name) {
     let currentUser = firebase.auth().currentUser;
     try {
         updateAuthDisplayName();
-    } catch(error) {
+    } catch (error) {
         alert(error.message)
     }
 
@@ -14,9 +14,16 @@ controller.updateDisplayName = function (name) {
         });
         loaderImg.style.visibility = 'hidden';
         await firebase.firestore().collection('users').doc(currentUser.uid)
-            .update({ displayName: name });
+            .update({
+                displayName: name
+            });
         alert('Cập nhật thành công');
         location.reload();
     }
 
+}
+
+module.exports = {
+    updateDisplayName,
+    updateAuthDisplayName
 }

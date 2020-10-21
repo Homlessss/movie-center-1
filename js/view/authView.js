@@ -46,3 +46,7 @@ view.loginScreen = function() {
         view.registerScreen()
     }
 }
+
+module.exports = {
+    
+}

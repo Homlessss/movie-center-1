@@ -7,26 +7,26 @@ controller.validatePassword = function (password, confirmPassword) {
     return password === confirmPassword;
 }
 
-controller.validateRegisterForm = function (registerValue) {
+controller.validateRegisterForm = (registerValue) => {
     try {
         if (!registerValue.firstName) {
-            throw new Error('Invalid first name')
+            throw new Error('Invalid first name');
         }
         if (!registerValue.lastName) {
-            throw new Error('Invalid last name')
+            throw new Error('Invalid last name');
         }
         if (!controller.validateEmail(registerValue.email)) {
             throw new Error('Invalid email');
         }
         if (!registerValue.password) {
-            throw new Error('Invalid password')
+            throw new Error('Invalid password');
         }
         if (!controller.validatePassword(registerValue.password, registerValue.confirmPassword)) {
             throw new Error('The password confirmation does not match');
         }
-        return true
+        return true;
     } catch (error) {
-        view.setText('register-error', error.message)
+        view.setText('register-error', error.message);
     }
 }
 
@@ -64,7 +64,7 @@ controller.generateScore = function (film) {
         return average + '.0'
     }
 
-    return Math.round(average*10)/10
+    return Math.round(average * 10) / 10
 }
 
 
@@ -94,7 +94,7 @@ controller.generateIframe = function (url) {
     return iframe
 }
 
-controller.convertFilmData = async function(snapshot) {
+controller.convertFilmData = async function (snapshot) {
     let filmData = snapshot.data()
 
     filmData.releaseDateString = controller.generateDate(snapshot.data().releaseDate.toDate());
@@ -107,7 +107,7 @@ controller.convertFilmData = async function(snapshot) {
     return filmData;
 }
 
-controller.getReviewInfo = function(reviews) {
+controller.getReviewInfo = function (reviews) {
     reviews.map(getReviewerInfo)
     return reviews
 
@@ -122,7 +122,7 @@ controller.getReviewInfo = function(reviews) {
     }
 }
 
-controller.loadAllFilms = async function() {
+controller.loadAllFilms = async function () {
     let filmDatas = [];
     let querySnapshots = await model.loadAllFilms();
     for (doc of querySnapshots.docs) {
@@ -133,7 +133,7 @@ controller.loadAllFilms = async function() {
     return filmDatas;
 }
 
-controller.paginate = function(array, numOfElements) {
+controller.paginate = function (array, numOfElements) {
     let arrayOfPages = [];
     for (let start = 0, end = numOfElements; start <= array.length - 1;) {
         arrayOfPages.push(array.slice(start, end));
@@ -143,10 +143,10 @@ controller.paginate = function(array, numOfElements) {
     return arrayOfPages
 }
 
-controller.addVoteFilmURLEvent = function() {
+controller.addVoteFilmURLEvent = function () {
     let filmURLs = document.querySelectorAll('.film-vote-url');
     for (let filmURL of filmURLs) {
-        filmURL.onclick = function(e) {
+        filmURL.onclick = function (e) {
             e.stopPropagation();
             view.threadScreen(filmURL.dataset.id);
         }
@@ -160,7 +160,24 @@ controller.validateReviewForm = function (form) {
     if (!form.star.value) {
         throw new Error('Bạn chưa đánh giá phim')
     }
-    if (!form.content.value) {
-        throw new Error('Bình luận không được để trống')
-    }
+    // if (!form.content.value) {
+    //     throw new Error('Bình luận không được để trống')
+    // }
+}
+
+module.exports = {
+    validateEmail,
+    validatePassword,
+    validateReviewForm,
+    validateLoginForm,
+    generateDate,
+    generateScore,
+    getReviewerInfo,
+    convertFilmData,
+    getReviewInfo,
+    getReviewerInfo,
+    loadAllFilms,
+    paginate,
+    addVoteFilmURLEvent,
+    validateReviewForm
 }
